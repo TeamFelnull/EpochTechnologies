@@ -1,0 +1,13 @@
+{
+  "_comment": "Item",
+  "item.epochtechnologies.test_item": "Test Item",
+
+  "_comment": "Block",
+  "block.epochtechnologies.test_block": "Test Block",
+
+  "_comment": "CreativeTab",
+  "itemGroup.epochtechnologies": "Epoch Technologies",
+
+  "_comment": "Last"
+  
+}
