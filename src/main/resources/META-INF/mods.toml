@@ -11,3 +11,10 @@ displayURL="https://www.servg.red/"
 credits="TeamFelNull"
 authors="MORIMORI0317" 
 description="Thank you for downloading!\nThis mod is The Ikisugi Industrial revolution."
+
+[[dependencies.epochtechnologies]]
+    modId="otyacraftengine"
+    mandatory=true
+    versionRange="[1.0,)"
+    ordering="NONE"
+    side="BOTH"

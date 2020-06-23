@@ -2,8 +2,16 @@
   "_comment": "Item",
   "item.epochtechnologies.test_item": "Test Item",
 
+  "item.epochtechnologies.cotton": "Cotton",
+
+
   "_comment": "Block",
   "block.epochtechnologies.test_block": "Test Block",
+
+  "block.epochtechnologies.copper_ore": "Copper Ore",
+  "block.epochtechnologies.tin_ore": "Tin Ore",
+
+
 
   "_comment": "CreativeTab",
   "itemGroup.epochtechnologies": "Epoch Technologies",
