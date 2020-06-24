@@ -9,6 +9,7 @@ import net.minecraft.util.Hand;
 import net.minecraft.util.text.StringTextComponent;
 import net.minecraft.world.World;
 import red.felnull.otyacraftengine.util.GorokuUtil;
+import red.felnull.otyacraftengine.util.IkisugiMath;
 
 public class TestItem extends Item {
     public TestItem(Properties properties) {

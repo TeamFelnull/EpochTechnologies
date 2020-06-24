@@ -8,13 +8,10 @@ import red.felnull.otyacraftengine.block.IColorbleBlock;
 
 import javax.annotation.Nullable;
 
-public class ColorOreBlock extends Block implements IColorbleBlock {
-    public ColorOreBlock(Properties properties) {
+public class ETOreBlock extends Block {
+    public ETOreBlock(Properties properties) {
         super(properties);
     }
 
-    @Override
-    public int getColoer(BlockState blockState, @Nullable ILightReader iLightReader, @Nullable BlockPos blockPos, int i) {
-        return Integer.parseInt("008b8b", 16);
-    }
+
 }

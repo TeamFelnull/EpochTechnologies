@@ -2,14 +2,29 @@
   "_comment": "Item",
   "item.epochtechnologies.test_item": "Test Item",
 
-  "item.epochtechnologies.cotton": "Cotton",
+  "item.epochtechnologies.copper_ingot": "Copper Ingot",
+  "item.epochtechnologies.tin_ingot": "Tin Ingot",
+  "item.epochtechnologies.lead_ingot": "Lead Ingot",
+  "item.epochtechnologies.nickel_ingot": "Nickel Ingot",
+  "item.epochtechnologies.silver_ingot": "Silver Ingot",
 
+  "item.epochtechnologies.nickel_ingot": "Nickel Ingot",
+  "item.epochtechnologies.silver_ingot": "Silver Ingot",
+
+
+  "item.epochtechnologies.ruby": "Ruby",
+  "item.epochtechnologies.sapphire": "Sapphire",
 
   "_comment": "Block",
   "block.epochtechnologies.test_block": "Test Block",
 
   "block.epochtechnologies.copper_ore": "Copper Ore",
   "block.epochtechnologies.tin_ore": "Tin Ore",
+  "block.epochtechnologies.lead_ore": "Lead Ore",
+  "block.epochtechnologies.nickel_ore": "Nickel Ore",
+  "block.epochtechnologies.silver_ore": "Silver Ore",
+  "block.epochtechnologies.ruby_ore": "Ruby Ore",
+  "block.epochtechnologies.sapphire_ore": "Sapphire Ore",
 
 
 
