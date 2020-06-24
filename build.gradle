@@ -76,14 +76,14 @@ repositories {
     name = "Jei"
     url = "https://modmaven.k-4u.nl"
   }
-  maven {
+  /*maven {
     name = "HWYLA"
     url = "http://tehnut.info/maven"
   }
   maven {
     name = "top"
     url = "http://maven.tterrag.com/"
-  }
+  }*/
 }
 
 dependencies {
@@ -91,8 +91,8 @@ dependencies {
   compile fg.deobf(files("libs/OtyacraftEngine-${oe_version}-dev.jar"))
   compileOnly fg.deobf("mezz.jei:jei-${jei_version}:api")
   runtimeOnly fg.deobf("mezz.jei:jei-${jei_version}")
-  compile fg.deobf("mcp.mobius.waila:Hwyla:${hwyla_version}")
-  implementation fg.deobf("mcjty.theoneprobe:TheOneProbe-${top_version}")
+//  compile fg.deobf("mcp.mobius.waila:Hwyla:${hwyla_version}")
+//  implementation fg.deobf("mcjty.theoneprobe:TheOneProbe-${top_version}")
 }
 
 

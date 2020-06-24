@@ -5,7 +5,8 @@ import net.minecraftforge.registries.IForgeRegistry;
 import red.felnull.epochtechnologies.EpochTechnologies;
 
 public class ETItems {
-    public static final Item TEST_ITEM = newItem("test_item");
+    public static final Item TEST_ITEM = new TestItem(new Item.Properties().group(ETItemGroup.MOD_TAB))
+            .setRegistryName(EpochTechnologies.MODID, "test_item");
 
     //植物
     public static final Item COTTON = newItem("cotton");

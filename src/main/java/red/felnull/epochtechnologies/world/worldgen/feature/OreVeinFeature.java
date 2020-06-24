@@ -27,7 +27,7 @@ public class OreVeinFeature extends Feature<NoFeatureConfig> {
 
     public boolean place(IWorld worldIn, ChunkGenerator<? extends GenerationSettings> generator, Random rand, BlockPos pos, NoFeatureConfig config) {
 
-        Biome biome = generator.getBiomeProvider().func_225526_b_(pos.getX(), 0, pos.getZ());
+        Biome biome = worldIn.func_226691_t_(pos);
         OreVeins genvein = OreVeins.getChunkToOreVein(worldIn.getChunk(pos), worldIn.getSeed(), biome);
 
         if (genvein == null)
@@ -45,6 +45,8 @@ public class OreVeinFeature extends Feature<NoFeatureConfig> {
 
         boolean flagv = genvein.generateVein(worldIn, generator, rand, genPos, config);
 
+        if (!genvein.isEjecta())
+            return flagv;
 
         genPos = new BlockPos(genPos.getX(), worldIn.getChunk(pos).getTopBlockY(Heightmap.Type.OCEAN_FLOOR_WG, 0, 0), genPos.getZ());
 
