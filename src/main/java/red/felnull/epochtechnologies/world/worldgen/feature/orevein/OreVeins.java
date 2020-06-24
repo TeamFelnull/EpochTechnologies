@@ -31,9 +31,9 @@ public class OreVeins {
     private int minhigh;//最低高度
     private int maxhigh;//最高高度
     private float density;//密集度(ブロックごとに１が最高、０が最低）
-    private boolean ejecta;
-    private List<Biome> whitelistBiome;
-    private List<Biome> blacklistBiome;
+    private boolean ejecta;//噴出物を生成するか
+    private List<Biome> whitelistBiome;//生成するばーいオームのホワイトリスト、nullで無効
+    private List<Biome> blacklistBiome;//生成するばーいオームのブラックリスト、nullで無効
 
     public OreVeins(List<OreVeinBlockProportion> ores, List<Block> genblocks, float probability, int size, int minhigh, int maxhigh, float density, boolean ejecta) {
         this(ores, genblocks, probability, size, minhigh, maxhigh, density, ejecta, null, null);
@@ -90,7 +90,7 @@ public class OreVeins {
     public boolean generateEjecta(IWorld worldIn, ChunkGenerator<? extends GenerationSettings> generator, Random rand, BlockPos uppos, NoFeatureConfig config) {
 
 
-        Biome biome =  worldIn.func_226691_t_(uppos);
+        Biome biome = worldIn.func_226691_t_(uppos);
         int vehgj = getChunkToHeight(worldIn.getChunk(uppos), worldIn.getSeed(), biome);
 
         BlockPos pos = new BlockPos(uppos.getX(), vehgj - getSize() / 2, uppos.getZ());

@@ -26,7 +26,8 @@ public class ETOreVeins {
     public static final OreVeins RED_STONE = new OreVeins(Arrays.asList(new OreVeinBlockProportion(Blocks.REDSTONE_ORE, 1)), STONES, 0.003f, 5, 12, 16, 0.75f, true);
     public static final OreVeins LAPIS = new OreVeins(Arrays.asList(new OreVeinBlockProportion(Blocks.LAPIS_ORE, 1)), STONES, 0.002f, 20, 14, 16, 0.75f, true);
     public static final OreVeins DIAMOND = new OreVeins(Arrays.asList(new OreVeinBlockProportion(Blocks.DIAMOND_ORE, 1)), STONES, 0.001f, 10, 5, 12, 0.90f, false);
-    public static final OreVeins EMERALD = new OreVeins(Arrays.asList(new OreVeinBlockProportion(Blocks.EMERALD_ORE, 1)), STONES, 1, 10, 5, 29, 0.90f, true, Arrays.asList(Biomes.MOUNTAINS), null);
+    public static final OreVeins EMERALD = new OreVeins(Arrays.asList(new OreVeinBlockProportion(Blocks.EMERALD_ORE, 1)), STONES, 0.001f, 10, 5, 29, 0.90f, false, Arrays.asList(Biomes.MOUNTAINS), null);
+    public static final OreVeins NETHER_QUARTZ = new OreVeins(Arrays.asList(new OreVeinBlockProportion(Blocks.NETHER_QUARTZ_ORE, 1)), NETHERRACK, 1f, 15, 0, 129, 0.50f, false, Arrays.asList(Biomes.NETHER), null);
 
     public static void registerVein() {
         registryVein("copper", COPPER);
@@ -38,7 +39,7 @@ public class ETOreVeins {
         registryVein("lapis", LAPIS);
         registryVein("diamond", DIAMOND);
         registryVein("emerald", EMERALD);
-
+        registryVein("nether_quartz", NETHER_QUARTZ);
 
     }
 
