@@ -9,19 +9,22 @@ import net.minecraft.item.Item;
 import net.minecraftforge.registries.IForgeRegistry;
 import red.felnull.epochtechnologies.EpochTechnologies;
 import red.felnull.epochtechnologies.item.ETItemGroup;
+import red.felnull.epochtechnologies.item.ShaftBlockItem;
 
 public class ETBlocks {
-    public static Block TEST_BLOCK = newBlock("test_block", Material.ROCK, SoundType.WOOD, 1.0f, 2.0f);
+    public static final Block TEST_BLOCK = newBlock("test_block", Material.ROCK, SoundType.WOOD, 1.0f, 2.0f);
 
     //鉱石
-    public static Block COPPER_ORE = newOreBlock("copper_ore", 1, 3.0f, 3.0f);
-    public static Block TIN_ORE = newOreBlock("tin_ore", 1, 3.0f, 3.0f);
-    public static Block LEAD_ORE = newOreBlock("lead_ore", 1, 3.0f, 3.0f);
-    public static Block NICKEL_ORE = newOreBlock("nickel_ore", 1, 3.0f, 3.0f);
-    public static Block SILVER_ORE = newOreBlock("silver_ore", 1, 3.0f, 3.0f);
-    public static Block RUBY_ORE = newOreBlock("ruby_ore", 1, 3.0f, 3.0f);
-    public static Block SAPPHIRE_ORE = newOreBlock("sapphire_ore", 1, 3.0f, 3.0f);
+    public static final Block COPPER_ORE = newOreBlock("copper_ore", 1, 3.0f, 3.0f);
+    public static final Block TIN_ORE = newOreBlock("tin_ore", 1, 3.0f, 3.0f);
+    public static final Block LEAD_ORE = newOreBlock("lead_ore", 1, 3.0f, 3.0f);
+    public static final Block NICKEL_ORE = newOreBlock("nickel_ore", 1, 3.0f, 3.0f);
+    public static final Block SILVER_ORE = newOreBlock("silver_ore", 1, 3.0f, 3.0f);
+    public static final Block RUBY_ORE = newOreBlock("ruby_ore", 1, 3.0f, 3.0f);
+    public static final Block SAPPHIRE_ORE = newOreBlock("sapphire_ore", 1, 3.0f, 3.0f);
 
+    //蒸気機関、動力関係
+    public static final Block SHAFT = new ShaftBlock(Block.Properties.create(Material.IRON).hardnessAndResistance(2.5f, 2.5f)).setRegistryName(EpochTechnologies.MODID, "shaft");
 
     public static void registerBlock(IForgeRegistry<Block> r) {
         registryBlock(r, TEST_BLOCK);
@@ -33,6 +36,9 @@ public class ETBlocks {
         registryBlock(r, SILVER_ORE);
         registryBlock(r, RUBY_ORE);
         registryBlock(r, SAPPHIRE_ORE);
+
+        registryBlock(r, SHAFT);
+
     }
 
     public static void registerItem(IForgeRegistry<Item> r) {
@@ -45,6 +51,9 @@ public class ETBlocks {
         registryBlockItem(r, SILVER_ORE);
         registryBlockItem(r, RUBY_ORE);
         registryBlockItem(r, SAPPHIRE_ORE);
+
+        registryItem(r, new ShaftBlockItem(SHAFT, new Item.Properties().group(ETItemGroup.MOD_TAB))
+                .setRegistryName(SHAFT.getRegistryName()));
     }
 
     private static Block newOreBlock(String name, int hlevel, float hardness, float resistance) {
@@ -64,5 +73,9 @@ public class ETBlocks {
     private static void registryBlockItem(IForgeRegistry<Item> r, Block b) {
         r.register(new BlockItem(b, new Item.Properties().group(ETItemGroup.MOD_TAB))
                 .setRegistryName(b.getRegistryName()));
+    }
+
+    private static void registryItem(IForgeRegistry<Item> r, Item i) {
+        r.register(i);
     }
 }
