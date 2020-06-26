@@ -1,7 +1,6 @@
 package red.felnull.epochtechnologies.block;
 
 import net.minecraft.block.Block;
-import net.minecraft.block.Blocks;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
 import net.minecraft.item.BlockItem;
@@ -9,7 +8,6 @@ import net.minecraft.item.Item;
 import net.minecraftforge.registries.IForgeRegistry;
 import red.felnull.epochtechnologies.EpochTechnologies;
 import red.felnull.epochtechnologies.item.ETItemGroup;
-import red.felnull.epochtechnologies.item.ShaftBlockItem;
 
 public class ETBlocks {
     public static final Block TEST_BLOCK = newBlock("test_block", Material.ROCK, SoundType.WOOD, 1.0f, 2.0f);
@@ -52,8 +50,8 @@ public class ETBlocks {
         registryBlockItem(r, RUBY_ORE);
         registryBlockItem(r, SAPPHIRE_ORE);
 
-        registryItem(r, new ShaftBlockItem(SHAFT, new Item.Properties().group(ETItemGroup.MOD_TAB))
-                .setRegistryName(SHAFT.getRegistryName()));
+        registryBlockItem(r, SHAFT);
+
     }
 
     private static Block newOreBlock(String name, int hlevel, float hardness, float resistance) {

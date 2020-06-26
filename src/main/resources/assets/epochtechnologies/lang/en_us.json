@@ -7,13 +7,13 @@
   "item.epochtechnologies.lead_ingot": "Lead Ingot",
   "item.epochtechnologies.nickel_ingot": "Nickel Ingot",
   "item.epochtechnologies.silver_ingot": "Silver Ingot",
-
-  "item.epochtechnologies.nickel_ingot": "Nickel Ingot",
-  "item.epochtechnologies.silver_ingot": "Silver Ingot",
-
-
+  
   "item.epochtechnologies.ruby": "Ruby",
   "item.epochtechnologies.sapphire": "Sapphire",
+
+  "item.epochtechnologies.tea_leaf": "Tea Leaf",
+  "item.epochtechnologies.cotton": "Cotton",
+
 
   "_comment": "Block",
   "block.epochtechnologies.test_block": "Test Block",
@@ -26,6 +26,7 @@
   "block.epochtechnologies.ruby_ore": "Ruby Ore",
   "block.epochtechnologies.sapphire_ore": "Sapphire Ore",
 
+  "block.epochtechnologies.shaft": "Shaft",
 
 
   "_comment": "CreativeTab",

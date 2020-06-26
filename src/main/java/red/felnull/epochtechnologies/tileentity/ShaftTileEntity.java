@@ -36,7 +36,7 @@ public class ShaftTileEntity extends TileEntity implements ITickableTileEntity, 
 
         if (!this.world.isRemote) {
 
-            rotation += 0.1f;
+            rotation += 1f;
 
             this.syncbleTick(this);
         }
