@@ -218,8 +218,6 @@ public class ETItems {
         registryItem(r,humanhide );
         registryItem(r,ravegerhide );
 
-
-
     }
 
     private static void registryItem(IForgeRegistry<Item> r, Item i) {
