@@ -1,21 +1,16 @@
 package red.felnull.epochtechnologies.tileentity;
 
-import net.minecraft.block.BlockState;
 import net.minecraft.nbt.CompoundNBT;
 import net.minecraft.tileentity.ITickableTileEntity;
 import net.minecraft.tileentity.TileEntity;
-import net.minecraft.tileentity.TileEntityType;
-import net.minecraft.world.IBlockReader;
 import red.felnull.otyacraftengine.tileentity.IClientSyncbleTileEntity;
 
-import javax.annotation.Nullable;
-
 public class ShaftTileEntity extends TileEntity implements ITickableTileEntity, IClientSyncbleTileEntity {
+    public float rotation;
+
     public ShaftTileEntity() {
         super(ETTileEntityTypes.SHAFT);
     }
-
-    public float rotation;
 
     @Override
     public void read(CompoundNBT tag) {

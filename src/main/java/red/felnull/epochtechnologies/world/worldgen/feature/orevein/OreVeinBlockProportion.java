@@ -14,10 +14,6 @@ public class OreVeinBlockProportion {
         this.proportion = proportion;
     }
 
-    public Block getOreBlock() {
-        return ore;
-    }
-
     public static Block getRaffleBlock(List<OreVeinBlockProportion> ores) {
 
         if (ores.size() == 1)
@@ -42,6 +38,10 @@ public class OreVeinBlockProportion {
         }
 
         return null;
+    }
+
+    public Block getOreBlock() {
+        return ore;
     }
 
     public int getProportion() {

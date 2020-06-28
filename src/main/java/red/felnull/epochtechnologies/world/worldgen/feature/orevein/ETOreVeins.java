@@ -2,11 +2,8 @@ package red.felnull.epochtechnologies.world.worldgen.feature.orevein;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
-import net.minecraft.item.Item;
 import net.minecraft.util.ResourceLocation;
-import net.minecraft.world.biome.Biome;
 import net.minecraft.world.biome.Biomes;
-import net.minecraftforge.registries.IForgeRegistry;
 import red.felnull.epochtechnologies.EpochTechnologies;
 import red.felnull.epochtechnologies.block.ETBlocks;
 import red.felnull.epochtechnologies.registries.ETRegistries;

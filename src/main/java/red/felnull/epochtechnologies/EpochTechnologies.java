@@ -16,9 +16,9 @@ import red.felnull.epochtechnologies.proxy.CommonProxy;
 @Mod(EpochTechnologies.MODID)
 public class EpochTechnologies {
     public static final String MODID = "epochtechnologies";
-    private static final Logger LOGGER = LogManager.getLogger();
     public static final CommonProxy proxy = DistExecutor
             .runForDist(() -> () -> new ClientProxy(), () -> () -> new CommonProxy());
+    private static final Logger LOGGER = LogManager.getLogger();
 
     public EpochTechnologies() {
         FMLJavaModLoadingContext.get().getModEventBus().addListener(this::setup);

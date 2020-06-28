@@ -8,7 +8,6 @@ import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import red.felnull.epochtechnologies.block.ETBlocks;
-import red.felnull.epochtechnologies.item.ETItemGroup;
 import red.felnull.epochtechnologies.item.ETItems;
 import red.felnull.epochtechnologies.tileentity.ETTileEntityTypes;
 import red.felnull.epochtechnologies.world.worldgen.feature.ETFeatures;

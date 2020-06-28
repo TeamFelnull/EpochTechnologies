@@ -20,6 +20,12 @@ public class ETBlocks {
     public static final Block SILVER_ORE = newOreBlock("silver_ore", 1, 3.0f, 3.0f);
     public static final Block RUBY_ORE = newOreBlock("ruby_ore", 1, 3.0f, 3.0f);
     public static final Block SAPPHIRE_ORE = newOreBlock("sapphire_ore", 1, 3.0f, 3.0f);
+    public static final Block AMETHYST_ORE = newOreBlock("amethyst_ore", 1, 3.0f, 3.0f);
+    public static final Block AMBER_ORE = newOreBlock("amber_ore", 1, 3.0f, 3.0f);
+    public static final Block AQUAMARINE_ORE = newOreBlock("aquamarine_ore", 1, 3.0f, 3.0f);
+    public static final Block ALEXANDRITE_ORE = newOreBlock("alexandrite_ore", 1, 3.0f, 3.0f);
+
+    //鉱石ブロック
     public static final Block COPPER_BLOCK = newOreBlock("copper_block", 1, 3.0f, 3.0f);
     public static final Block TIN_BLOCK = newOreBlock("tin_block", 1, 3.0f, 3.0f);
     public static final Block LEAD_BLOCK = newOreBlock("lead_block", 1, 3.0f, 3.0f);
@@ -61,6 +67,11 @@ public class ETBlocks {
         registryBlock(r, SILVER_ORE);
         registryBlock(r, RUBY_ORE);
         registryBlock(r, SAPPHIRE_ORE);
+        registryBlock(r, AMETHYST_ORE);
+        registryBlock(r, AMBER_ORE);
+        registryBlock(r, AQUAMARINE_ORE);
+        registryBlock(r, ALEXANDRITE_ORE);
+
         registryBlock(r, COPPER_BLOCK);
         registryBlock(r, TIN_BLOCK);
         registryBlock(r, LEAD_BLOCK);
@@ -133,6 +144,7 @@ public class ETBlocks {
         registryBlockItem(r, SHAFT);
 
     }
+
 
     private static Block newOreBlock(String name, int hlevel, float hardness, float resistance) {
         return new ETOreBlock(Block.Properties.create(Material.ROCK).hardnessAndResistance(hardness, resistance).harvestLevel(hlevel))

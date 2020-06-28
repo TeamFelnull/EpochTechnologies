@@ -2,14 +2,12 @@ package red.felnull.epochtechnologies.world.worldgen.feature.orevein;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
-import net.minecraft.block.Blocks;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.IWorld;
 import net.minecraft.world.IWorldWriter;
 import net.minecraft.world.biome.Biome;
-import net.minecraft.world.biome.Biomes;
 import net.minecraft.world.chunk.IChunk;
 import net.minecraft.world.gen.ChunkGenerator;
 import net.minecraft.world.gen.GenerationSettings;
@@ -50,6 +48,42 @@ public class OreVeins {
         this.ejecta = ejecta;
         this.whitelistBiome = whitelistBiome;
         this.blacklistBiome = blacklistBiome;
+    }
+
+    protected static boolean isOvarideBlock(Block block) {
+
+        boolean flag1 = Tags.Blocks.DIRT.contains(block);
+        boolean flag2 = Tags.Blocks.SAND.contains(block);
+        boolean flag3 = Tags.Blocks.SANDSTONE.contains(block);
+        boolean flag4 = Tags.Blocks.GRAVEL.contains(block);
+
+        return flag1 || flag2 || flag3 || flag4;
+    }
+
+    public static OreVeins getChunkToOreVein(IChunk chunk, long seed, Biome biome) {
+
+        List<OreVeins> veins = new ArrayList<OreVeins>();
+
+        for (Map.Entry<ResourceLocation, OreVeins> ro : ETRegistries.ORE_VEINS.entrySet()) {
+            if (ro.getValue().isGenerateToOreVein(chunk, seed, biome))
+                veins.add(ro.getValue());
+        }
+
+        if (veins.size() == 0)
+            return null;
+        Random r = new Random(radomGenNum(chunk, seed, "vein_gen"));
+
+        return veins.get(r.nextInt(veins.size()));
+    }
+
+    private static int radomGenNum(IChunk chunk, long seed, String name) {
+
+        int num1 = new Random(chunk.getPos().x).nextInt(Integer.MAX_VALUE);
+        int num2 = new Random(chunk.getPos().z).nextInt(Integer.MAX_VALUE);
+        int num3 = new Random((int) seed).nextInt(Integer.MAX_VALUE);
+        int num4 = new Random(IkisugiMath.convertStringToInteger(name)).nextInt(Integer.MAX_VALUE);
+
+        return num1 * num2 * num3 * num4;
     }
 
     public boolean isBiomeGen(Biome biome) {
@@ -188,16 +222,6 @@ public class OreVeins {
         return true;
     }
 
-    protected static boolean isOvarideBlock(Block block) {
-
-        boolean flag1 = Tags.Blocks.DIRT.contains(block);
-        boolean flag2 = Tags.Blocks.SAND.contains(block);
-        boolean flag3 = Tags.Blocks.SANDSTONE.contains(block);
-        boolean flag4 = Tags.Blocks.GRAVEL.contains(block);
-
-        return flag1 || flag2 || flag3 || flag4;
-    }
-
     protected void setBlockState(IWorldWriter worldIn, BlockPos pos, BlockState state) {
         worldIn.setBlockState(pos, state, 3);
     }
@@ -215,7 +239,6 @@ public class OreVeins {
         return getGenerateBlocks().contains(worldIn.getBlockState(pos).getBlock());
     }
 
-
     public float getProbability() {
         return probability;
     }
@@ -224,16 +247,13 @@ public class OreVeins {
         return size;
     }
 
-
     public int getMinhigh() {
         return minhigh;
     }
 
-
     public int getMaxhigh() {
         return maxhigh;
     }
-
 
     public float getDensity() {
         return density;
@@ -263,32 +283,6 @@ public class OreVeins {
     public int getChunkToHeight(IChunk chunk, long seed, Biome biome) {
         Random r = new Random(radomGenNum(chunk, seed, "vein_height" + this.getRegistryName().toString()));
         return r.nextInt(this.maxhigh - this.minhigh);
-    }
-
-    public static OreVeins getChunkToOreVein(IChunk chunk, long seed, Biome biome) {
-
-        List<OreVeins> veins = new ArrayList<OreVeins>();
-
-        for (Map.Entry<ResourceLocation, OreVeins> ro : ETRegistries.ORE_VEINS.entrySet()) {
-            if (ro.getValue().isGenerateToOreVein(chunk, seed, biome))
-                veins.add(ro.getValue());
-        }
-
-        if (veins.size() == 0)
-            return null;
-        Random r = new Random(radomGenNum(chunk, seed, "vein_gen"));
-
-        return veins.get(r.nextInt(veins.size()));
-    }
-
-    private static int radomGenNum(IChunk chunk, long seed, String name) {
-
-        int num1 = new Random(chunk.getPos().x).nextInt(Integer.MAX_VALUE);
-        int num2 = new Random(chunk.getPos().z).nextInt(Integer.MAX_VALUE);
-        int num3 = new Random((int) seed).nextInt(Integer.MAX_VALUE);
-        int num4 = new Random(IkisugiMath.convertStringToInteger(name)).nextInt(Integer.MAX_VALUE);
-
-        return num1 * num2 * num3 * num4;
     }
 
     public boolean isEjecta() {

@@ -1,20 +1,14 @@
 package red.felnull.epochtechnologies.world.worldgen.feature;
 
 import com.mojang.datafixers.Dynamic;
-import net.minecraft.block.Block;
-import net.minecraft.block.BlockState;
-import net.minecraft.block.Blocks;
 import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.IWorld;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.gen.ChunkGenerator;
 import net.minecraft.world.gen.GenerationSettings;
 import net.minecraft.world.gen.Heightmap;
 import net.minecraft.world.gen.feature.Feature;
-import net.minecraft.world.gen.feature.IceSpikeFeature;
 import net.minecraft.world.gen.feature.NoFeatureConfig;
-import red.felnull.epochtechnologies.world.worldgen.feature.orevein.ETOreVeins;
 import red.felnull.epochtechnologies.world.worldgen.feature.orevein.OreVeins;
 
 import java.util.Random;

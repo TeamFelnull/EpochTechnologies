@@ -24,21 +24,6 @@ public class ETItems {
     public static final Item AQUAMARINE = newItem("aquamarine");
     public static final Item ALEXANDRITE = newItem("alexandrite");
 
-    //種
-    public static final Item COTTON_SEEDS = newItem("cotton_seeds");
-    public static final Item TEA_LEAF_SEEDS = newItem("tea_leaf_seeds");
-    public static final Item PAPPER_SEEDS = newItem("papper_seeds");
-    public static final Item DING_SEEDS = newItem("ding_seeds");
-    public static final Item CINAMMON_SEEDS = newItem("cinammon_seeds");
-    public static final Item NATMEG_SEEDS = newItem("natmeg_seeds");
-    public static final Item CARDAMON_SEEDS = newItem("cardamon_seeds");
-    public static final Item GINGER_SEEDS = newItem("ginger_seeds");
-    public static final Item OPIUM_SEEDS = newItem("opium_seeds");
-    public static final Item RICE_SEEDS = newItem("rice_seeds");
-    public static final Item SOY_SEEDS = newItem("soy_seeds");
-    public static final Item WHEAT_SEEDS = newItem("wheat_seeds");
-    public static final Item CORN_SEEDS = newItem("corn_seeds");
-
     //植物
     public static final Item COTTON = newItem("cotton");
     public static final Item TEA_LEAF = newItem("tea_leaf");
@@ -49,29 +34,38 @@ public class ETItems {
     public static final Item CARDAMOM = newItem("cardamon");
     public static final Item GINGER = newItem("ginger");
     public static final Item OPIUM = newItem("opium");
-
-    //穀物
     public static final Item RICE = newItem("rice");
     public static final Item SOY = newItem("soy");
     public static final Item WHEAT = newItem("wheat");
     public static final Item CORN = newItem("corn");
 
-    //毛皮
-    public static final Item WOLFHIDE = newItem("wolfhide");
-    public static final Item SHEEPHIDE = newItem("sheephide");
-    public static final Item PIGHIDE = newItem("pighide");
-    public static final Item FOXHIDE = newItem("foxhide");
-    public static final Item POLAR_BEARHIDE = newItem("polar_bearhide");
-    public static final Item PANDAHIDE = newItem("pandahide");
-    public static final Item HOGLINHIDE = newItem("hoglinhide");
-    public static final Item DOLPHINHIDE = newItem("dolphinhide");
-    public static final Item CATHIDE = newItem("cathide");
-    public static final Item TURTLEHIDE = newItem("turtlehide");
-    public static final Item BATHIDE = newItem("bathide");
-    public static final Item HORSEHIDE = newItem("horsehide");
-    public static final Item HUMANHIDE = newItem("humanhide");
-    public static final Item RAVEGERHIDE = newItem("ravegerhide");
+    //種
+    public static final Item COTTON_SEEDS = newItem("cotton_seeds");
+    public static final Item TEA_LEAF_SEEDS = newItem("tea_leaf_seeds");
+    public static final Item PAPPER_SEEDS = newItem("papper_seeds");
+    public static final Item DING_SEEDS = newItem("ding_seeds");
+    public static final Item CINAMMON_SEEDS = newItem("cinammon_seeds");
+    public static final Item NATMEG_SEEDS = newItem("natmeg_seeds");
+    public static final Item CARDAMON_SEEDS = newItem("cardamon_seeds");
+    public static final Item GINGER_SEEDS = newItem("ginger_seeds");
+    public static final Item OPIUM_SEEDS = newItem("opium_seeds");
+    public static final Item WHEAT_SEEDS = newItem("wheat_seeds");
+    public static final Item CORN_SEEDS = newItem("corn_seeds");
 
+    //毛皮
+    public static final Item WOLF_HIDE = newItem("wolf_hide");
+    public static final Item FOX_HIDE = newItem("fox_hide");
+    public static final Item BEAR_HIDE = newItem("bear_hide");
+    public static final Item HOGLIN_HIDE = newItem("hoglin_hide");
+    public static final Item DOLPHIN_HIDE = newItem("dolphin_hide");
+    public static final Item CAT_HIDE = newItem("cat_hide");
+    public static final Item TURTLE_HIDE = newItem("turtle_hide");
+    public static final Item HORSE_HIDE = newItem("horse_hide");
+    public static final Item HUMAN_HIDE = newItem("human_hide");
+
+    //MOBドロップ
+    public static final Item BAT_WING = newItem("bat_wing");
+    public static final Item CAT_TAIL = newItem("cat_tail");
 
     public static void registerItem(IForgeRegistry<Item> r) {
 
@@ -100,8 +94,6 @@ public class ETItems {
         registryItem(r, CARDAMON_SEEDS);
         registryItem(r, GINGER_SEEDS);
         registryItem(r, OPIUM_SEEDS);
-        registryItem(r, RICE_SEEDS);
-        registryItem(r, SOY_SEEDS);
         registryItem(r, WHEAT_SEEDS);
         registryItem(r, CORN_SEEDS);
 
@@ -120,22 +112,18 @@ public class ETItems {
         registryItem(r, WHEAT);
         registryItem(r, CORN);
 
-        registryItem(r, WOLFHIDE);
-        registryItem(r, SHEEPHIDE);
-        registryItem(r, PIGHIDE);
-        registryItem(r, FOXHIDE);
-        registryItem(r, POLAR_BEARHIDE);
-        registryItem(r, PANDAHIDE);
-        registryItem(r, HOGLINHIDE);
-        registryItem(r, DOLPHINHIDE);
-        registryItem(r, CATHIDE);
-        registryItem(r, TURTLEHIDE);
-        registryItem(r, BATHIDE);
-        registryItem(r, HORSEHIDE);
-        registryItem(r, HUMANHIDE);
-        registryItem(r, RAVEGERHIDE);
+        registryItem(r, WOLF_HIDE);
+        registryItem(r, FOX_HIDE);
+        registryItem(r, BEAR_HIDE);
+        registryItem(r, HOGLIN_HIDE);
+        registryItem(r, DOLPHIN_HIDE);
+        registryItem(r, CAT_HIDE);
+        registryItem(r, TURTLE_HIDE);
+        registryItem(r, HORSE_HIDE);
+        registryItem(r, HUMAN_HIDE);
 
-
+        registryItem(r, BAT_WING);
+        registryItem(r, CAT_TAIL);
     }
 
     private static void registryItem(IForgeRegistry<Item> r, Item i) {
