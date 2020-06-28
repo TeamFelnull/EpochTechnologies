@@ -8,7 +8,6 @@ import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.ISeedReader;
 import net.minecraft.world.IWorld;
 import net.minecraft.world.IWorldWriter;
-import net.minecraft.world.World;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.chunk.IChunk;
 import net.minecraft.world.gen.ChunkGenerator;
@@ -106,8 +105,8 @@ public class OreVeins {
 
     }
 
-    public boolean generateVein(ISeedReader seed, StructureManager structureManager, ChunkGenerator generator, Random rand, BlockPos pos, NoFeatureConfig config) {
-        World worldIn = seed.getWorld();
+    public boolean generateVein(ISeedReader worldIn, StructureManager structureManager, ChunkGenerator generator, Random rand, BlockPos pos, NoFeatureConfig config) {
+
         int siez = getSize();
         for (int f = 0; f < siez; f++) {
             for (int f2 = 0; f2 < siez; f2++) {
@@ -124,10 +123,10 @@ public class OreVeins {
         return true;
     }
 
-    public boolean generateEjecta(ISeedReader seed, StructureManager structureManager, ChunkGenerator generator, Random rand, BlockPos uppos, NoFeatureConfig config) {
-        World worldIn = seed.getWorld();
+    public boolean generateEjecta(ISeedReader worldIn, StructureManager structureManager, ChunkGenerator generator, Random rand, BlockPos uppos, NoFeatureConfig config) {
+
         Biome biome = worldIn.getBiome(uppos);
-        int vehgj = getChunkToHeight(worldIn.getChunk(uppos), seed.getSeed(), biome);
+        int vehgj = getChunkToHeight(worldIn.getChunk(uppos), worldIn.getSeed(), biome);
 
         BlockPos pos = new BlockPos(uppos.getX(), vehgj - getSize() / 2, uppos.getZ());
 

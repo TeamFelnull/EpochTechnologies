@@ -21,6 +21,5 @@ public class OreGeneration {
 
     public static void addStonInOre(Block block, Biome biome, int size, int chinkCont, int minhghi, int maxhghi) {
         biome.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Feature.ORE.withConfiguration(new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE, block.getDefaultState(), size)).withPlacement(Placement.COUNT_RANGE.configure(new CountRangeConfig(chinkCont, minhghi, 0, maxhghi))));
-
     }
 }
