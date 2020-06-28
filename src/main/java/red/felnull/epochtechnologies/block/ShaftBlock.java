@@ -11,7 +11,7 @@ import javax.annotation.Nullable;
 public class ShaftBlock extends RotatedPillarBlock {
 
     public ShaftBlock(Properties properties) {
-        super(properties.func_226896_b_());
+        super(properties.notSolid());
     }
 
 

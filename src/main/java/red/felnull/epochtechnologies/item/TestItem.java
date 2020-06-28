@@ -18,8 +18,8 @@ public class TestItem extends Item {
     public ActionResult<ItemStack> onItemRightClick(World worldIn, PlayerEntity playerIn, Hand handIn) {
         ItemStack itemstack = playerIn.getHeldItem(handIn);
         if (!worldIn.isRemote) {
-            playerIn.sendMessage(new StringTextComponent(GorokuUtil.getYattaze()));
+            playerIn.sendStatusMessage(new StringTextComponent(GorokuUtil.getYattaze()), false);
         }
-        return ActionResult.func_226248_a_(itemstack);
+        return ActionResult.func_233538_a_(itemstack, worldIn.isRemote());
     }
 }

@@ -1,34 +1,34 @@
 package red.felnull.epochtechnologies.world.worldgen.feature;
 
-import com.mojang.datafixers.Dynamic;
+import com.mojang.serialization.Codec;
 import net.minecraft.util.math.BlockPos;
-import net.minecraft.world.IWorld;
+import net.minecraft.world.ISeedReader;
+import net.minecraft.world.World;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.gen.ChunkGenerator;
-import net.minecraft.world.gen.GenerationSettings;
 import net.minecraft.world.gen.Heightmap;
 import net.minecraft.world.gen.feature.Feature;
 import net.minecraft.world.gen.feature.NoFeatureConfig;
+import net.minecraft.world.gen.feature.structure.StructureManager;
 import red.felnull.epochtechnologies.world.worldgen.feature.orevein.OreVeins;
 
 import java.util.Random;
-import java.util.function.Function;
 
 public class OreVeinFeature extends Feature<NoFeatureConfig> {
-    public OreVeinFeature(Function<Dynamic<?>, ? extends NoFeatureConfig> configFactoryIn) {
-        super(configFactoryIn);
+    public OreVeinFeature(Codec<NoFeatureConfig> cfig) {
+        super(cfig);
     }
 
-    public boolean place(IWorld worldIn, ChunkGenerator<? extends GenerationSettings> generator, Random rand, BlockPos pos, NoFeatureConfig config) {
-
-        Biome biome = worldIn.func_226691_t_(pos);
-        OreVeins genvein = OreVeins.getChunkToOreVein(worldIn.getChunk(pos), worldIn.getSeed(), biome);
+    public boolean func_230362_a_(ISeedReader seed, StructureManager structureManager, ChunkGenerator generator, Random rand, BlockPos pos, NoFeatureConfig config) {
+        World worldIn = seed.getWorld();
+        Biome biome = worldIn.getBiome(pos);
+        OreVeins genvein = OreVeins.getChunkToOreVein(worldIn.getChunk(pos), seed.getSeed(), biome);
 
         if (genvein == null)
             return false;
 
         int minhigh = genvein.getMinhigh();
-        int y = minhigh + genvein.getChunkToHeight(worldIn.getChunk(pos), worldIn.getSeed(), biome);
+        int y = minhigh + genvein.getChunkToHeight(worldIn.getChunk(pos), seed.getSeed(), biome);
         int x = pos.getX();
         int z = pos.getZ();
         BlockPos genPos = new BlockPos(x, y, z); //生成される原点
@@ -37,7 +37,7 @@ public class OreVeinFeature extends Feature<NoFeatureConfig> {
             return false;
 
 
-        boolean flagv = genvein.generateVein(worldIn, generator, rand, genPos, config);
+        boolean flagv = genvein.generateVein(seed, structureManager, generator, rand, genPos, config);
 
         if (!genvein.isEjecta())
             return flagv;
@@ -50,7 +50,7 @@ public class OreVeinFeature extends Feature<NoFeatureConfig> {
                 return flagv;
         }
 
-        boolean flage = genvein.generateEjecta(worldIn, generator, rand, genPos, config);
+        boolean flage = genvein.generateEjecta(seed, structureManager, generator, rand, genPos, config);
 
 
         return flagv && flage;

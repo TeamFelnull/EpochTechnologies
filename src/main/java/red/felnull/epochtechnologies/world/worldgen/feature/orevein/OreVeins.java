@@ -5,13 +5,15 @@ import net.minecraft.block.BlockState;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;
+import net.minecraft.world.ISeedReader;
 import net.minecraft.world.IWorld;
 import net.minecraft.world.IWorldWriter;
+import net.minecraft.world.World;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.chunk.IChunk;
 import net.minecraft.world.gen.ChunkGenerator;
-import net.minecraft.world.gen.GenerationSettings;
 import net.minecraft.world.gen.feature.NoFeatureConfig;
+import net.minecraft.world.gen.feature.structure.StructureManager;
 import net.minecraftforge.common.Tags;
 import red.felnull.epochtechnologies.registries.ETRegistries;
 import red.felnull.otyacraftengine.util.IkisugiMath;
@@ -52,10 +54,10 @@ public class OreVeins {
 
     protected static boolean isOvarideBlock(Block block) {
 
-        boolean flag1 = Tags.Blocks.DIRT.contains(block);
-        boolean flag2 = Tags.Blocks.SAND.contains(block);
-        boolean flag3 = Tags.Blocks.SANDSTONE.contains(block);
-        boolean flag4 = Tags.Blocks.GRAVEL.contains(block);
+        boolean flag1 = Tags.Blocks.DIRT.func_230235_a_(block);
+        boolean flag2 = Tags.Blocks.SAND.func_230235_a_(block);
+        boolean flag3 = Tags.Blocks.SANDSTONE.func_230235_a_(block);
+        boolean flag4 = Tags.Blocks.GRAVEL.func_230235_a_(block);
 
         return flag1 || flag2 || flag3 || flag4;
     }
@@ -104,7 +106,8 @@ public class OreVeins {
 
     }
 
-    public boolean generateVein(IWorld worldIn, ChunkGenerator<? extends GenerationSettings> generator, Random rand, BlockPos pos, NoFeatureConfig config) {
+    public boolean generateVein(ISeedReader seed, StructureManager structureManager, ChunkGenerator generator, Random rand, BlockPos pos, NoFeatureConfig config) {
+        World worldIn = seed.getWorld();
         int siez = getSize();
         for (int f = 0; f < siez; f++) {
             for (int f2 = 0; f2 < siez; f2++) {
@@ -121,11 +124,10 @@ public class OreVeins {
         return true;
     }
 
-    public boolean generateEjecta(IWorld worldIn, ChunkGenerator<? extends GenerationSettings> generator, Random rand, BlockPos uppos, NoFeatureConfig config) {
-
-
-        Biome biome = worldIn.func_226691_t_(uppos);
-        int vehgj = getChunkToHeight(worldIn.getChunk(uppos), worldIn.getSeed(), biome);
+    public boolean generateEjecta(ISeedReader seed, StructureManager structureManager, ChunkGenerator generator, Random rand, BlockPos uppos, NoFeatureConfig config) {
+        World worldIn = seed.getWorld();
+        Biome biome = worldIn.getBiome(uppos);
+        int vehgj = getChunkToHeight(worldIn.getChunk(uppos), seed.getSeed(), biome);
 
         BlockPos pos = new BlockPos(uppos.getX(), vehgj - getSize() / 2, uppos.getZ());
 
@@ -234,7 +236,7 @@ public class OreVeins {
         return generateBlocks;
     }
 
-    public boolean canGenerate(IWorld worldIn, ChunkGenerator<? extends GenerationSettings> generator, Random rand, BlockPos pos, NoFeatureConfig config) {
+    public boolean canGenerate(IWorld worldIn, ChunkGenerator generator, Random rand, BlockPos pos, NoFeatureConfig config) {
 
         return getGenerateBlocks().contains(worldIn.getBlockState(pos).getBlock());
     }

@@ -12,8 +12,8 @@ public class CommonProxy {
     public void preInit() {
         OERegistries.registrierModColor(EpochTechnologies.MODID, Integer.parseInt("008b8b", 16));
         ETOreVeins.registerVein();
-        OreGeneration.init();
-        ETFeatures.init();
+      //  OreGeneration.init();
+       // ETFeatures.init();
     }
 
     public void init() {

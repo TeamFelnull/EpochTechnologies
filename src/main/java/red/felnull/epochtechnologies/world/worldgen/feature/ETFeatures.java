@@ -12,15 +12,17 @@ import net.minecraftforge.registries.IForgeRegistry;
 import red.felnull.epochtechnologies.EpochTechnologies;
 
 public class ETFeatures {
-    public static final Feature<NoFeatureConfig> ORE_VEIN = new OreVeinFeature(NoFeatureConfig::deserialize);
+    public static final Feature<NoFeatureConfig> ORE_VEIN = new OreVeinFeature(NoFeatureConfig.field_236558_a_);
+
 
     public static void registerFeature(IForgeRegistry<Feature<?>> r) {
         r.register(ORE_VEIN.setRegistryName(EpochTechnologies.MODID, "ore_vein"));
     }
 
+
     public static void init() {
         for (Biome biome : ForgeRegistries.BIOMES) {
-            biome.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, ORE_VEIN.func_225566_b_(IFeatureConfig.NO_FEATURE_CONFIG).func_227228_a_(Placement.COUNT_RANGE.func_227446_a_(new CountRangeConfig(1, 0, 0, 1))));
+            biome.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, ORE_VEIN.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG).withPlacement(Placement.COUNT_RANGE.configure(new CountRangeConfig(1, 0, 0, 1))));
         }
     }
 }
