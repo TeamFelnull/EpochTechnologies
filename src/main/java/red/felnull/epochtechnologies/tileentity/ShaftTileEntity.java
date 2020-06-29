@@ -7,7 +7,7 @@ import net.minecraft.tileentity.TileEntity;
 import red.felnull.otyacraftengine.tileentity.IClientSyncbleTileEntity;
 
 public class ShaftTileEntity extends TileEntity implements ITickableTileEntity, IClientSyncbleTileEntity {
-    public float rotation;
+    private float rotationAngle;
 
     public ShaftTileEntity() {
         super(ETTileEntityTypes.SHAFT);
@@ -16,14 +16,18 @@ public class ShaftTileEntity extends TileEntity implements ITickableTileEntity, 
     @Override
     public void func_230337_a_(BlockState state, CompoundNBT tag) {
         super.func_230337_a_(state, tag);
-        this.rotation = tag.getFloat("Rotation");
+        this.rotationAngle = tag.getFloat("RotationAngle");
 
+    }
+
+    public float getRotationAngle() {
+        return rotationAngle;
     }
 
     @Override
     public CompoundNBT write(CompoundNBT tag) {
         super.write(tag);
-        tag.putFloat("Rotation", this.rotation);
+        tag.putFloat("RotationAngle", this.rotationAngle);
         return tag;
     }
 
@@ -31,7 +35,7 @@ public class ShaftTileEntity extends TileEntity implements ITickableTileEntity, 
     public void tick() {
 
         if (!this.world.isRemote) {
-            rotation += 1f;
+            rotationAngle += 1f;
         }
 
         this.syncble(this);

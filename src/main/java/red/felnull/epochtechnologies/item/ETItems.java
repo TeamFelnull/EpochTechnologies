@@ -2,10 +2,6 @@ package red.felnull.epochtechnologies.item;
 
 import net.minecraft.item.Food;
 import net.minecraft.item.Item;
-import net.minecraft.item.Items;
-import net.minecraft.world.gen.feature.Feature;
-import net.minecraft.world.gen.feature.StructureFeature;
-import net.minecraft.world.gen.feature.structure.Structure;
 import net.minecraftforge.registries.IForgeRegistry;
 import red.felnull.epochtechnologies.EpochTechnologies;
 
@@ -28,7 +24,6 @@ public class ETItems {
     public static final Item PEARL = newItem("pearl");
     public static final Item AQUAMARINE = newItem("aquamarine");
     public static final Item ALEXANDRITE = newItem("alexandrite");
-
 
 
     //植物
@@ -57,6 +52,10 @@ public class ETItems {
     //MOBドロップ
     public static final Item BAT_WING = newItem("bat_wing");
     public static final Item CAT_TAIL = newItem("cat_tail");
+
+    //蒸気機関、動力関係
+    public static final Item FLYWHEEL = newItem("flywheel");
+
 
     public static void registerItem(IForgeRegistry<Item> r) {
 
@@ -99,6 +98,8 @@ public class ETItems {
 
         registryItem(r, BAT_WING);
         registryItem(r, CAT_TAIL);
+
+        registryItem(r, FLYWHEEL);
     }
 
     private static void registryItem(IForgeRegistry<Item> r, Item i) {
