@@ -5,7 +5,7 @@ import red.felnull.epochtechnologies.EpochTechnologies;
 import red.felnull.epochtechnologies.world.worldgen.OreGeneration;
 import red.felnull.epochtechnologies.world.worldgen.feature.ETFeatures;
 import red.felnull.epochtechnologies.world.worldgen.feature.orevein.ETOreVeins;
-import red.felnull.otyacraftengine.registries.OERegistries;
+import red.felnull.otyacraftengine.api.registries.OERegistries;
 
 public class CommonProxy {
 

@@ -1,0 +1,12 @@
+{
+  "replace": false,
+  "values": [
+    "#forge:gems/ruby",
+    "#forge:gems/sapphire",
+    "#forge:gems/alexandrite",
+    "#forge:gems/amber",
+    "#forge:gems/amethyst",
+    "#forge:gems/aquamarine",
+    "#forge:gems/pearl"
+  ]
+}

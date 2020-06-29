@@ -31,21 +31,10 @@ public class ShaftTileEntity extends TileEntity implements ITickableTileEntity, 
     public void tick() {
 
         if (!this.world.isRemote) {
-
             rotation += 1f;
-
-            this.syncbleTick(this);
         }
+
+        this.syncble(this);
     }
 
-    @Override
-    public CompoundNBT sendToClient(CompoundNBT tag) {
-        tag.putFloat("Rotation", this.rotation);
-        return tag;
-    }
-
-    @Override
-    public void receiveToClient(CompoundNBT tag) {
-        this.rotation = tag.getFloat("Rotation");
-    }
 }
