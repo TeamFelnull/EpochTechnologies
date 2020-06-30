@@ -1,4 +1,4 @@
-package red.felnull.epochtechnologies.registries;
+package red.felnull.epochtechnologies.api.registries;
 
 import net.minecraft.util.ResourceLocation;
 import red.felnull.epochtechnologies.world.worldgen.feature.orevein.OreVeins;

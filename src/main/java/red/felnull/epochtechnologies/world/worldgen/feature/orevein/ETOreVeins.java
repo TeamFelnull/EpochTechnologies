@@ -6,7 +6,7 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.biome.Biomes;
 import red.felnull.epochtechnologies.EpochTechnologies;
 import red.felnull.epochtechnologies.block.ETBlocks;
-import red.felnull.epochtechnologies.registries.ETRegistries;
+import red.felnull.epochtechnologies.api.registries.ETRegistries;
 
 import java.util.Arrays;
 import java.util.List;

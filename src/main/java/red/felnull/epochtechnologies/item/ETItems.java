@@ -1,9 +1,12 @@
 package red.felnull.epochtechnologies.item;
 
+import net.minecraft.entity.EntityType;
 import net.minecraft.item.Food;
 import net.minecraft.item.Item;
+import net.minecraft.item.SpawnEggItem;
 import net.minecraftforge.registries.IForgeRegistry;
 import red.felnull.epochtechnologies.EpochTechnologies;
+import red.felnull.epochtechnologies.entity.ETEntityTypes;
 
 public class ETItems {
     public static final Item TEST_ITEM = new TestItem(new Item.Properties().group(ETItemGroup.MOD_TAB))
@@ -53,8 +56,12 @@ public class ETItems {
     public static final Item BAT_WING = newItem("bat_wing");
     public static final Item CAT_TAIL = newItem("cat_tail");
 
+    //スポーンエッグ
+    public static final Item BEAR_SPAWN_EGG = newSpawnEgg(ETEntityTypes.BEAR, "bear_spawn_egg", 10506797, 9127187);
+
+
     //蒸気機関、動力関係
-    public static final Item FLYWHEEL = newItem("flywheel");
+    //  public static final Item FLYWHEEL = newItem("flywheel");
 
 
     public static void registerItem(IForgeRegistry<Item> r) {
@@ -99,7 +106,7 @@ public class ETItems {
         registryItem(r, BAT_WING);
         registryItem(r, CAT_TAIL);
 
-        registryItem(r, FLYWHEEL);
+        registryItem(r, BEAR_SPAWN_EGG);
     }
 
     private static void registryItem(IForgeRegistry<Item> r, Item i) {
@@ -117,4 +124,9 @@ public class ETItems {
     private static Item newItem(String name, int maxsize) {
         return new Item(new Item.Properties().group(ETItemGroup.MOD_TAB).maxStackSize(maxsize)).setRegistryName(EpochTechnologies.MODID, name);
     }
+
+    private static Item newSpawnEgg(EntityType<?> type, String name, int color1, int color2) {
+        return new SpawnEggItem(type, color1, color2, (new Item.Properties()).group(ETItemGroup.MOD_TAB)).setRegistryName(EpochTechnologies.MODID, name);
+    }
+
 }

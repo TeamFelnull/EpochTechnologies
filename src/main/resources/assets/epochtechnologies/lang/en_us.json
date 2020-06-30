@@ -39,6 +39,8 @@
   "item.epochtechnologies.bat_wing": "Bat Wing",
   "item.epochtechnologies.cat_tail": "Cat Tail",
 
+  "item.epochtechnologies.flywheel": "Flywheel",
+
   "_comment": "Block",
   "block.epochtechnologies.test_block": "Test Block",
 

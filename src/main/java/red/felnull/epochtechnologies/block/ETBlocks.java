@@ -113,6 +113,11 @@ public class ETBlocks {
         registryBlockItem(r, SILVER_ORE);
         registryBlockItem(r, RUBY_ORE);
         registryBlockItem(r, SAPPHIRE_ORE);
+        registryBlockItem(r, AMETHYST_ORE);
+        registryBlockItem(r, AMBER_ORE);
+        registryBlockItem(r, AQUAMARINE_ORE);
+        registryBlockItem(r, ALEXANDRITE_ORE);
+
         registryBlockItem(r, COPPER_BLOCK);
         registryBlockItem(r, TIN_BLOCK);
         registryBlockItem(r, LEAD_BLOCK);
@@ -125,20 +130,6 @@ public class ETBlocks {
         registryBlockItem(r, PEARL_BLOCK);
         registryBlockItem(r, AQUAMARINE_BLOCK);
         registryBlockItem(r, ALEXANDRITE_BLOCK);
-
-        registryBlockItem(r, COTTON_BLOCK);
-        registryBlockItem(r, TEA_LEAF_BLOCK);
-        registryBlockItem(r, PAPPER_BLOCK);
-        registryBlockItem(r, DING_BLOCK);
-        registryBlockItem(r, CINAMMON_BLOCK);
-        registryBlockItem(r, NATMEG_BLOCK);
-        registryBlockItem(r, CARDAMON_BLOCK);
-        registryBlockItem(r, GINGER_BLOCK);
-        registryBlockItem(r, OPIUM_BLOCK);
-        registryBlockItem(r, RICE_BLOCK);
-        registryBlockItem(r, SOY_BLOCK);
-        registryBlockItem(r, WHEAT_BLOCK);
-        registryBlockItem(r, CORN_BLOCK);
 
 
         registryBlockItem(r, SHAFT);

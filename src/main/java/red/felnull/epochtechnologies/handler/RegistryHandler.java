@@ -1,6 +1,7 @@
 package red.felnull.epochtechnologies.handler;
 
 import net.minecraft.block.Block;
+import net.minecraft.entity.EntityType;
 import net.minecraft.item.Item;
 import net.minecraft.tileentity.TileEntityType;
 import net.minecraft.world.gen.feature.Feature;
@@ -8,6 +9,7 @@ import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import red.felnull.epochtechnologies.block.ETBlocks;
+import red.felnull.epochtechnologies.entity.ETEntityTypes;
 import red.felnull.epochtechnologies.item.ETItems;
 import red.felnull.epochtechnologies.tileentity.ETTileEntityTypes;
 import red.felnull.epochtechnologies.world.worldgen.feature.ETFeatures;
@@ -33,5 +35,10 @@ public class RegistryHandler {
     @SubscribeEvent
     public static void onTileEntityTypeRegistry(final RegistryEvent.Register<TileEntityType<?>> e) {
         ETTileEntityTypes.registerTileEntityType(e.getRegistry());
+    }
+
+    @SubscribeEvent
+    public static void onEntityRegistry(final RegistryEvent.Register<EntityType<?>> e) {
+        ETEntityTypes.registerEntity(e.getRegistry());
     }
 }

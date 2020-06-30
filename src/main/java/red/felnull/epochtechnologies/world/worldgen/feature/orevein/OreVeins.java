@@ -1,5 +1,6 @@
 package red.felnull.epochtechnologies.world.worldgen.feature.orevein;
 
+import net.minecraft.block.AirBlock;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.util.ResourceLocation;
@@ -14,7 +15,7 @@ import net.minecraft.world.gen.ChunkGenerator;
 import net.minecraft.world.gen.feature.NoFeatureConfig;
 import net.minecraft.world.gen.feature.structure.StructureManager;
 import net.minecraftforge.common.Tags;
-import red.felnull.epochtechnologies.registries.ETRegistries;
+import red.felnull.epochtechnologies.api.registries.ETRegistries;
 import red.felnull.otyacraftengine.util.IkisugiMath;
 
 import java.util.ArrayList;
@@ -57,8 +58,10 @@ public class OreVeins {
         boolean flag2 = Tags.Blocks.SAND.func_230235_a_(block);
         boolean flag3 = Tags.Blocks.SANDSTONE.func_230235_a_(block);
         boolean flag4 = Tags.Blocks.GRAVEL.func_230235_a_(block);
+        boolean flag5 = block.getRegistryName().toString().contains("terracotta");
+        boolean flag6 = block instanceof AirBlock;
 
-        return flag1 || flag2 || flag3 || flag4;
+        return flag1 || flag2 || flag3 || flag4 || flag5 || flag6;
     }
 
     public static OreVeins getChunkToOreVein(IChunk chunk, long seed, Biome biome) {
