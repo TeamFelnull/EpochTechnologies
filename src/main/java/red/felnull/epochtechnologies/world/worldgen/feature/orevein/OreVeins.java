@@ -24,7 +24,7 @@ import java.util.Map;
 import java.util.Random;
 
 public class OreVeins {
-    private List<OreVeinBlockProportion> oreBlocks;//生成する鉱石たち
+    private List<SimpleOreVeinBlockProportion> oreBlocks;//生成する鉱石たち
     private List<Block> generateBlocks;//上書きされるブロック
     private float probability;//鉱脈生成確率(チャンクごとに１が最高、０が最低）
     private int size;//サイズ
@@ -32,14 +32,13 @@ public class OreVeins {
     private int maxhigh;//最高高度
     private float density;//密集度(ブロックごとに１が最高、０が最低）
     private boolean ejecta;//噴出物を生成するか
-    private List<Biome> whitelistBiome;//生成するばーいオームのホワイトリスト、nullで無効
-    private List<Biome> blacklistBiome;//生成するばーいオームのブラックリスト、nullで無効
+    private SimpleOreVeinBiomeFilter biomeFilter;//生成するバイオームのフィルター
 
-    public OreVeins(List<OreVeinBlockProportion> ores, List<Block> genblocks, float probability, int size, int minhigh, int maxhigh, float density, boolean ejecta) {
-        this(ores, genblocks, probability, size, minhigh, maxhigh, density, ejecta, null, null);
+    public OreVeins(List<SimpleOreVeinBlockProportion> ores, List<Block> genblocks, float probability, int size, int minhigh, int maxhigh, float density, boolean ejecta) {
+        this(ores, genblocks, probability, size, minhigh, maxhigh, density, ejecta, new SimpleOreVeinBiomeFilter((Biome[]) null));
     }
 
-    public OreVeins(List<OreVeinBlockProportion> ores, List<Block> genblocks, float probability, int size, int minhigh, int maxhigh, float density, boolean ejecta, List<Biome> whitelistBiome, List<Biome> blacklistBiome) {
+    public OreVeins(List<SimpleOreVeinBlockProportion> ores, List<Block> genblocks, float probability, int size, int minhigh, int maxhigh, float density, boolean ejecta, SimpleOreVeinBiomeFilter filter) {
         this.oreBlocks = ores;
         this.generateBlocks = genblocks;
         this.probability = probability;
@@ -48,8 +47,7 @@ public class OreVeins {
         this.maxhigh = maxhigh;
         this.density = density;
         this.ejecta = ejecta;
-        this.whitelistBiome = whitelistBiome;
-        this.blacklistBiome = blacklistBiome;
+        this.biomeFilter = filter;
     }
 
     protected static boolean isOvarideBlock(Block block) {
@@ -90,23 +88,6 @@ public class OreVeins {
         return num1 * num2 * num3 * num4;
     }
 
-    public boolean isBiomeGen(Biome biome) {
-
-
-        if (whitelistBiome == null && blacklistBiome == null)
-            return true;
-
-        if (whitelistBiome == null && blacklistBiome != null) {
-            return !blacklistBiome.contains(biome);
-        }
-
-        if (whitelistBiome != null && blacklistBiome == null) {
-            return whitelistBiome.contains(biome);
-        }
-
-        return whitelistBiome.contains(biome) && !blacklistBiome.contains(biome);
-
-    }
 
     public boolean generateVein(ISeedReader worldIn, StructureManager structureManager, ChunkGenerator generator, Random rand, BlockPos pos, NoFeatureConfig config) {
 
@@ -117,7 +98,7 @@ public class OreVeins {
                     BlockPos generatePos = new BlockPos(pos.getX() - siez / 2 + f, pos.getY() - siez / 2 + f3, pos.getZ() - siez / 2 + f2);
                     boolean densflag = rand.nextFloat() <= getDensity();
                     if (densflag && getGenerateBlocks().contains(worldIn.getBlockState(generatePos).getBlock())) {
-                        Block genBlock = OreVeinBlockProportion.getRaffleBlock(getOreBlocks());
+                        Block genBlock = SimpleOreVeinBlockProportion.getRaffleBlock(getOreBlocks());
                         this.setBlockState(worldIn, generatePos, genBlock.getDefaultState());
                     }
                 }
@@ -155,7 +136,7 @@ public class OreVeins {
                         if (isOvarideBlock(block) || !blockstate.getFluidState().isEmpty() || blockstate.isAir(worldIn, pos.add(i1, k, j1)) || getGenerateBlocks().contains(block)) {
                             boolean densflag = rand.nextFloat() <= getDensity();
                             if (densflag) {
-                                this.setBlockState(worldIn, pos.add(i1, k, j1), OreVeinBlockProportion.getRaffleBlock(getOreBlocks()).getDefaultState());
+                                this.setBlockState(worldIn, pos.add(i1, k, j1), SimpleOreVeinBlockProportion.getRaffleBlock(getOreBlocks()).getDefaultState());
                             } else {
                                 if (isOvarideBlock(block) || !blockstate.getFluidState().isEmpty() || blockstate.isAir(worldIn, pos.add(i1, k, j1))) {
                                     this.setBlockState(worldIn, pos.add(i1, k, j1), getGenerateBlocks().get(0).getDefaultState());
@@ -169,7 +150,7 @@ public class OreVeins {
                             if (isOvarideBlock(block) || !blockstate.getFluidState().isEmpty() || blockstate.isAir(worldIn, pos.add(i1, -k, j1)) || getGenerateBlocks().contains(block)) {
                                 boolean densflag = rand.nextFloat() <= getDensity();
                                 if (densflag) {
-                                    this.setBlockState(worldIn, pos.add(i1, -k, j1), OreVeinBlockProportion.getRaffleBlock(getOreBlocks()).getDefaultState());
+                                    this.setBlockState(worldIn, pos.add(i1, -k, j1), SimpleOreVeinBlockProportion.getRaffleBlock(getOreBlocks()).getDefaultState());
                                 } else {
                                     if (isOvarideBlock(block) || !blockstate.getFluidState().isEmpty() || blockstate.isAir(worldIn, pos.add(i1, -k, j1))) {
                                         this.setBlockState(worldIn, pos.add(i1, -k, j1), getGenerateBlocks().get(0).getDefaultState());
@@ -202,10 +183,10 @@ public class OreVeins {
                     Block block1 = blockstate1.getBlock();
 
                     if (isOvarideBlock(block1) || !blockstate1.getFluidState().isEmpty() || blockstate1.isAir(worldIn, blockpos) || getGenerateBlocks().contains(block1)) {
-                        this.setBlockState(worldIn, blockpos, OreVeinBlockProportion.getRaffleBlock(getOreBlocks()).getDefaultState());
+                        this.setBlockState(worldIn, blockpos, SimpleOreVeinBlockProportion.getRaffleBlock(getOreBlocks()).getDefaultState());
                         boolean densflag = rand.nextFloat() <= getDensity();
                         if (densflag) {
-                            this.setBlockState(worldIn, blockpos, OreVeinBlockProportion.getRaffleBlock(getOreBlocks()).getDefaultState());
+                            this.setBlockState(worldIn, blockpos, SimpleOreVeinBlockProportion.getRaffleBlock(getOreBlocks()).getDefaultState());
                         } else {
                             if (isOvarideBlock(block1) || !blockstate1.getFluidState().isEmpty() || blockstate1.isAir(worldIn, blockpos)) {
                                 this.setBlockState(worldIn, blockpos, getGenerateBlocks().get(0).getDefaultState());
@@ -230,7 +211,7 @@ public class OreVeins {
         worldIn.setBlockState(pos, state, 3);
     }
 
-    public List<OreVeinBlockProportion> getOreBlocks() {
+    public List<SimpleOreVeinBlockProportion> getOreBlocks() {
         return oreBlocks;
     }
 
@@ -273,7 +254,7 @@ public class OreVeins {
 
     public boolean isGenerateToOreVein(IChunk chunk, long seed, Biome biome) {
 
-        if (!isBiomeGen(biome))
+        if (!biomeFilter.canGenerate(biome))
             return false;
 
 

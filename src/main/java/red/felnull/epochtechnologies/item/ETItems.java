@@ -32,10 +32,11 @@ public class ETItems {
     //植物
     public static final Item COTTON = newItem("cotton");
     public static final Item TEA_LEAF = newItem("tea_leaf");
-    public static final Item PAPPER = newItem("papper");
+    public static final Item PEPPER = newItem("pepper");
     public static final Item RICE = newItem("rice");
     public static final Item SOY = newItem("soy");
     public static final Item CORN = newFoodItem("corn", ETFoods.CORN);
+    public static final Item PEPPER_CORNS = newFoodItem("pepper_corns", ETFoods.CORN);
 
     //種
     public static final Item COTTON_SEEDS = newItem("cotton_seeds");
@@ -46,9 +47,8 @@ public class ETItems {
     public static final Item WOLF_HIDE = newItem("wolf_hide");
     public static final Item FOX_HIDE = newItem("fox_hide");
     public static final Item BEAR_HIDE = newItem("bear_hide");
-    public static final Item DOLPHIN_HIDE = newItem("dolphin_hide");
+    public static final Item PIG_HIDE = newItem("pig_hide");
     public static final Item CAT_HIDE = newItem("cat_hide");
-    public static final Item TURTLE_HIDE = newItem("turtle_hide");
     public static final Item HORSE_HIDE = newItem("horse_hide");
     public static final Item HUMAN_HIDE = newItem("human_hide");
 
@@ -82,24 +82,23 @@ public class ETItems {
         registryItem(r, AQUAMARINE);
         registryItem(r, ALEXANDRITE);
 
-
         registryItem(r, COTTON_SEEDS);
         registryItem(r, TEA_LEAF_SEEDS);
         registryItem(r, CORN_SEEDS);
 
         registryItem(r, COTTON);
         registryItem(r, TEA_LEAF);
-        registryItem(r, PAPPER);
+        registryItem(r, PEPPER);
         registryItem(r, RICE);
         registryItem(r, SOY);
         registryItem(r, CORN);
+        registryItem(r, PEPPER_CORNS);
 
         registryItem(r, WOLF_HIDE);
         registryItem(r, FOX_HIDE);
         registryItem(r, BEAR_HIDE);
-        registryItem(r, DOLPHIN_HIDE);
+        registryItem(r, PIG_HIDE);
         registryItem(r, CAT_HIDE);
-        registryItem(r, TURTLE_HIDE);
         registryItem(r, HORSE_HIDE);
         registryItem(r, HUMAN_HIDE);
 

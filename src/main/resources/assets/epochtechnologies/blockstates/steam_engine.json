@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=east": {
+      "model": "epochtechnologies:block/steam_engine/body",
+      "y": 90
+    },
+    "facing=north": {
+      "model": "epochtechnologies:block/steam_engine/body"
+    },
+    "facing=south": {
+      "model": "epochtechnologies:block/steam_engine/body",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "epochtechnologies:block/steam_engine/body",
+      "y": 270
+    }
+  }
+}

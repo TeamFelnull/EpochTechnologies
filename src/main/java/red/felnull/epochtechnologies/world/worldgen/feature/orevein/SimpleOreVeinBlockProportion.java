@@ -2,22 +2,29 @@ package red.felnull.epochtechnologies.world.worldgen.feature.orevein;
 
 import net.minecraft.block.Block;
 
+import java.util.Arrays;
 import java.util.List;
 import java.util.Random;
 
-public class OreVeinBlockProportion {
-    private Block ore;
+public class SimpleOreVeinBlockProportion {
+    private Block[] ores;
     private int proportion;
 
-    public OreVeinBlockProportion(Block ore, int proportion) {
-        this.ore = ore;
+    public SimpleOreVeinBlockProportion(int proportion) {
         this.proportion = proportion;
     }
 
-    public static Block getRaffleBlock(List<OreVeinBlockProportion> ores) {
+    public SimpleOreVeinBlockProportion(int proportion, Block... ore) {
+        this.ores = ore;
+        this.proportion = proportion;
+    }
+
+    public static Block getRaffleBlock(List<SimpleOreVeinBlockProportion> ores) {
+
+        Random r = new Random();
 
         if (ores.size() == 1)
-            return ores.get(0).getOreBlock();
+            return ores.get(0).getOreBlocks().get(r.nextInt(ores.get(0).getOreBlocks().size()));
 
 
         int all = 0;
@@ -25,8 +32,6 @@ public class OreVeinBlockProportion {
             all += ores.get(i).getProportion();
         }
 
-
-        Random r = new Random();
         int raff = r.nextInt(all) + 1;
 
         int c = 0;
@@ -34,14 +39,14 @@ public class OreVeinBlockProportion {
             c += ores.get(i).getProportion();
 
             if (c >= raff)
-                return ores.get(i).getOreBlock();
+                return ores.get(i).getOreBlocks().get(r.nextInt(ores.get(i).getOreBlocks().size()));
         }
 
         return null;
     }
 
-    public Block getOreBlock() {
-        return ore;
+    public List<Block> getOreBlocks() {
+        return Arrays.asList(ores);
     }
 
     public int getProportion() {

@@ -1,8 +1,6 @@
 package red.felnull.epochtechnologies.client.handler;
 
 import net.minecraft.client.renderer.model.IBakedModel;
-import net.minecraft.client.renderer.model.ModelRotation;
-import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.client.event.ModelBakeEvent;
 import net.minecraftforge.client.event.ModelRegistryEvent;

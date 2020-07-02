@@ -8,6 +8,7 @@ import net.minecraft.item.Item;
 import net.minecraftforge.registries.IForgeRegistry;
 import red.felnull.epochtechnologies.EpochTechnologies;
 import red.felnull.epochtechnologies.item.ETItemGroup;
+import red.felnull.epochtechnologies.item.SteamEngineBlockItem;
 
 public class ETBlocks {
     public static final Block TEST_BLOCK = newBlock("test_block", Material.ROCK, SoundType.WOOD, 1.0f, 2.0f);
@@ -55,7 +56,8 @@ public class ETBlocks {
     public static final Block CORN_BLOCK = newBlock("corn_block", Material.PLANTS, SoundType.PLANT, 1.0f, 2.0f);
 
     //蒸気機関、動力関係
-    public static final Block SHAFT = new ShaftBlock(Block.Properties.create(Material.IRON).hardnessAndResistance(2.5f, 2.5f)).setRegistryName(EpochTechnologies.MODID, "shaft");
+    public static final Block SHAFT = new ShaftBlock(Block.Properties.create(Material.IRON).hardnessAndResistance(2.5f, 2.5f).notSolid()).setRegistryName(EpochTechnologies.MODID, "shaft");
+    public static final Block STEAM_ENGINE = new SteamEngineBlock(Block.Properties.create(Material.IRON).hardnessAndResistance(2.5f, 2.5f).notSolid()).setRegistryName(EpochTechnologies.MODID, "steam_engine");
 
     public static void registerBlock(IForgeRegistry<Block> r) {
         registryBlock(r, TEST_BLOCK);
@@ -100,7 +102,7 @@ public class ETBlocks {
         registryBlock(r, CORN_BLOCK);
 
         registryBlock(r, SHAFT);
-
+        registryBlock(r, STEAM_ENGINE);
     }
 
     public static void registerItem(IForgeRegistry<Item> r) {
@@ -133,6 +135,7 @@ public class ETBlocks {
 
 
         registryBlockItem(r, SHAFT);
+        r.register(new SteamEngineBlockItem(STEAM_ENGINE, new Item.Properties().group(ETItemGroup.MOD_TAB)).setRegistryName(EpochTechnologies.MODID, "steam_engine"));
 
     }
 

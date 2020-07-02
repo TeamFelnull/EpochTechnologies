@@ -4,20 +4,13 @@ import com.mojang.blaze3d.matrix.MatrixStack;
 import com.mojang.blaze3d.vertex.IVertexBuilder;
 import net.minecraft.block.BlockState;
 import net.minecraft.client.Minecraft;
-import net.minecraft.client.renderer.BlockModelRenderer;
-import net.minecraft.client.renderer.BlockRendererDispatcher;
 import net.minecraft.client.renderer.IRenderTypeBuffer;
 import net.minecraft.client.renderer.RenderType;
-import net.minecraft.client.renderer.model.ModelRotation;
 import net.minecraft.client.renderer.tileentity.TileEntityRenderer;
 import net.minecraft.client.renderer.tileentity.TileEntityRendererDispatcher;
-import net.minecraft.item.ItemStack;
 import net.minecraft.util.Direction;
 import net.minecraft.util.ResourceLocation;
-import net.minecraftforge.client.model.ModelLoader;
-import net.minecraftforge.client.model.data.EmptyModelData;
 import red.felnull.epochtechnologies.EpochTechnologies;
-import red.felnull.epochtechnologies.block.ETBlocks;
 import red.felnull.epochtechnologies.block.ShaftBlock;
 import red.felnull.epochtechnologies.tileentity.ShaftTileEntity;
 import red.felnull.otyacraftengine.client.util.RenderHelper;
@@ -32,13 +25,12 @@ public class ShaftTileEntityRenderer extends TileEntityRenderer<ShaftTileEntity>
 
     @Override
     public void render(ShaftTileEntity tile, float partialTicks, MatrixStack matrix, IRenderTypeBuffer buff, int light, int overlay) {
-        ItemStack shaft = new ItemStack(ETBlocks.SHAFT);
         BlockState state = tile.getBlockState();
         Direction.Axis axis = state.get(ShaftBlock.AXIS);
 
         RenderHelper.matrixPush(matrix);
-        RenderHelper.matrixTranslatef(matrix, 0.5f, 0.5f, 0.5f);
 
+        RenderHelper.matrixTranslatef(matrix, 0.5f, 0.5f, 0.5f);
 
         if (axis == Direction.Axis.Y) {
             RenderHelper.matrixRotateDegreefX(matrix, 90);
@@ -48,11 +40,12 @@ public class ShaftTileEntityRenderer extends TileEntityRenderer<ShaftTileEntity>
 
         RenderHelper.matrixRotateDegreefZ(matrix, tile.getRotationAngle());
 
-        BlockRendererDispatcher brd = mc.getBlockRendererDispatcher();
-        BlockModelRenderer bmr = brd.getBlockModelRenderer();
+        RenderHelper.matrixTranslatef(matrix, -0.5f, -0.5f, -0.5f);
+
         IVertexBuilder ivb = buff.getBuffer(RenderType.getSolid());
 
-        bmr.renderModel(tile.getWorld(), ModelLoader.instance().bake(new ResourceLocation(EpochTechnologies.MODID, "item/flywaheel"), ModelRotation.X0_Y0), state, tile.getPos(), matrix, ivb, false, tile.getWorld().rand, 0, light, EmptyModelData.INSTANCE);
+        RenderHelper.renderBlockBakedModel(RenderHelper.getBakedModel(new ResourceLocation(EpochTechnologies.MODID, "block/shaft/shaft")), matrix, ivb, overlay, tile);
+
         RenderHelper.matrixPop(matrix);
 
 

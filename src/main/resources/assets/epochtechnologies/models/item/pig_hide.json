@@ -1,6 +1,6 @@
 {
     "parent": "item/generated",
     "textures": {
-        "layer0": "epochtechnologies:item/papper"
+        "layer0": "epochtechnologies:item/pig_hide"
     }
 }

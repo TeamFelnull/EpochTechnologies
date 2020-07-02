@@ -6,11 +6,12 @@ import net.minecraft.tileentity.ITickableTileEntity;
 import net.minecraft.tileentity.TileEntity;
 import red.felnull.otyacraftengine.tileentity.IClientSyncbleTileEntity;
 
-public class ShaftTileEntity extends TileEntity implements ITickableTileEntity, IClientSyncbleTileEntity {
+public class SteamEngineTileEntity extends TileEntity implements ITickableTileEntity, IClientSyncbleTileEntity {
+
     private float rotationAngle;
 
-    public ShaftTileEntity() {
-        super(ETTileEntityTypes.SHAFT);
+    public SteamEngineTileEntity() {
+        super(ETTileEntityTypes.STEAM_ENGINE);
     }
 
     @Override
@@ -35,10 +36,14 @@ public class ShaftTileEntity extends TileEntity implements ITickableTileEntity, 
     public void tick() {
 
         if (!this.world.isRemote) {
-            rotationAngle += 5f;
+            rotationAngle += 75;
+
+            while (rotationAngle > 360) {
+                rotationAngle -= 360;
+            }
+
         }
 
         this.syncble(this);
     }
-
 }

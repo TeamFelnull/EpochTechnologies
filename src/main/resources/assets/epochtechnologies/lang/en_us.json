@@ -18,10 +18,12 @@
   
   "item.epochtechnologies.tea_leaf": "Tea Leaf",
   "item.epochtechnologies.cotton": "Cotton",
-  "item.epochtechnologies.papper": "Papper",
+  "item.epochtechnologies.pepper": "Papper",
   "item.epochtechnologies.rice": "Rice",
   "item.epochtechnologies.soy": "Soy",
   "item.epochtechnologies.corn": "Corn",
+  "item.epochtechnologies.pepper_corns": "Pepper Corns",
+  
   
   "item.epochtechnologies.cotton_seeds": "Cotton Seeds",
   "item.epochtechnologies.tea_leaf_seeds": "Tea Leaf Seeds",
@@ -30,9 +32,8 @@
   "item.epochtechnologies.wolf_hide": "Wolf Hide",
   "item.epochtechnologies.fox_hide": "Fox Hide",
   "item.epochtechnologies.bear_hide": "Bear Hide",
-  "item.epochtechnologies.dolphin_hide": "Dolphin Hide",
+  "item.epochtechnologies.pig_hide": "Pig Hide",
   "item.epochtechnologies.cat_hide": "Cat Hide",
-  "item.epochtechnologies.turtle_hide": "turtle Hide",
   "item.epochtechnologies.horse_hide": "Horse Hide",
   "item.epochtechnologies.human_hide": "Human Hide",
   
