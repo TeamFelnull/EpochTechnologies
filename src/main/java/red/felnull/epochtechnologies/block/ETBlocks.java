@@ -40,23 +40,11 @@ public class ETBlocks {
     public static final Block AQUAMARINE_BLOCK = newOreBlock("aquamarine_block", 1, 3.0f, 3.0f);
     public static final Block ALEXANDRITE_BLOCK = newOreBlock("alexandrite_block", 1, 3.0f, 3.0f);
 
-    //植物、穀物ブロック
-    public static final Block COTTON_BLOCK = newBlock("cotton_block", Material.PLANTS, SoundType.PLANT, 1.0f, 2.0f);
-    public static final Block TEA_LEAF_BLOCK = newBlock("tea_leaf_block", Material.PLANTS, SoundType.PLANT, 1.0f, 2.0f);
-    public static final Block PAPPER_BLOCK = newBlock("papper_block", Material.PLANTS, SoundType.PLANT, 1.0f, 2.0f);
-    public static final Block DING_BLOCK = newBlock("ding_block", Material.PLANTS, SoundType.PLANT, 1.0f, 2.0f);
-    public static final Block CINAMMON_BLOCK = newBlock("cinammon_block", Material.PLANTS, SoundType.PLANT, 1.0f, 2.0f);
-    public static final Block NATMEG_BLOCK = newBlock("natmeg_block", Material.PLANTS, SoundType.PLANT, 1.0f, 2.0f);
-    public static final Block CARDAMON_BLOCK = newBlock("cardamon_block", Material.PLANTS, SoundType.PLANT, 1.0f, 2.0f);
-    public static final Block GINGER_BLOCK = newBlock("ginger_block", Material.PLANTS, SoundType.PLANT, 1.0f, 2.0f);
-    public static final Block OPIUM_BLOCK = newBlock("opium_block", Material.PLANTS, SoundType.PLANT, 1.0f, 2.0f);
-    public static final Block RICE_BLOCK = newBlock("rice_block", Material.PLANTS, SoundType.PLANT, 1.0f, 2.0f);
-    public static final Block SOY_BLOCK = newBlock("soy_block", Material.PLANTS, SoundType.PLANT, 1.0f, 2.0f);
-    public static final Block WHEAT_BLOCK = newBlock("wheat_block", Material.PLANTS, SoundType.PLANT, 1.0f, 2.0f);
-    public static final Block CORN_BLOCK = newBlock("corn_block", Material.PLANTS, SoundType.PLANT, 1.0f, 2.0f);
+    //植物、穀物の作物ブロック
+    public static final Block PROP = new PropBlock(Block.Properties.create(Material.WOOD).hardnessAndResistance(2.5f, 2.5f).notSolid()).setRegistryName(EpochTechnologies.MODID, "prop");
 
     //蒸気機関、動力関係
-    public static final Block SHAFT = new ShaftBlock(Block.Properties.create(Material.IRON).hardnessAndResistance(2.5f, 2.5f).notSolid()).setRegistryName(EpochTechnologies.MODID, "shaft");
+    public static final Block SHAFT = new ShaftBlock(Block.Properties.create(Material.IRON).sound(SoundType.SCAFFOLDING).hardnessAndResistance(2.5f, 2.5f).notSolid()).setRegistryName(EpochTechnologies.MODID, "shaft");
     public static final Block STEAM_ENGINE = new SteamEngineBlock(Block.Properties.create(Material.IRON).hardnessAndResistance(2.5f, 2.5f).notSolid()).setRegistryName(EpochTechnologies.MODID, "steam_engine");
 
     public static void registerBlock(IForgeRegistry<Block> r) {
@@ -87,19 +75,7 @@ public class ETBlocks {
         registryBlock(r, AQUAMARINE_BLOCK);
         registryBlock(r, ALEXANDRITE_BLOCK);
 
-        registryBlock(r, COTTON_BLOCK);
-        registryBlock(r, TEA_LEAF_BLOCK);
-        registryBlock(r, PAPPER_BLOCK);
-        registryBlock(r, DING_BLOCK);
-        registryBlock(r, CINAMMON_BLOCK);
-        registryBlock(r, NATMEG_BLOCK);
-        registryBlock(r, CARDAMON_BLOCK);
-        registryBlock(r, GINGER_BLOCK);
-        registryBlock(r, OPIUM_BLOCK);
-        registryBlock(r, RICE_BLOCK);
-        registryBlock(r, SOY_BLOCK);
-        registryBlock(r, WHEAT_BLOCK);
-        registryBlock(r, CORN_BLOCK);
+        registryBlock(r, PROP);
 
         registryBlock(r, SHAFT);
         registryBlock(r, STEAM_ENGINE);
@@ -133,6 +109,7 @@ public class ETBlocks {
         registryBlockItem(r, AQUAMARINE_BLOCK);
         registryBlockItem(r, ALEXANDRITE_BLOCK);
 
+        registryBlockItem(r, PROP);
 
         registryBlockItem(r, SHAFT);
         r.register(new SteamEngineBlockItem(STEAM_ENGINE, new Item.Properties().group(ETItemGroup.MOD_TAB)).setRegistryName(EpochTechnologies.MODID, "steam_engine"));

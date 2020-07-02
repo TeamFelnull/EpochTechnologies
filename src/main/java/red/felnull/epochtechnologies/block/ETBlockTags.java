@@ -3,6 +3,7 @@ package red.felnull.epochtechnologies.block;
 import net.minecraft.block.Block;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.tags.ITag;
+import red.felnull.epochtechnologies.EpochTechnologies;
 
 public class ETBlockTags {
     public static final ITag.INamedTag<Block> ORES_COPPER = forgeTag("ores/copper");
@@ -17,7 +18,14 @@ public class ETBlockTags {
     public static final ITag.INamedTag<Block> ORES_ALEXANDRITE = forgeTag("ores/alexandrite");
     public static final ITag.INamedTag<Block> ORES_AQUAMARINE = forgeTag("ores/aquamarine");
 
+    public static final ITag.INamedTag<Block> PROP_PLANTABLE_ON = etTag("prop_plantable_on");
+
     private static ITag.INamedTag<Block> forgeTag(String name) {
         return BlockTags.makeWrapperTag("forge:" + name);
     }
+
+    private static ITag.INamedTag<Block> etTag(String name) {
+        return BlockTags.makeWrapperTag(EpochTechnologies.MODID + ":" + name);
+    }
+
 }

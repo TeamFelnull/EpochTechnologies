@@ -37,6 +37,8 @@
   "item.epochtechnologies.horse_hide": "Horse Hide",
   "item.epochtechnologies.human_hide": "Human Hide",
   
+  "item.epochtechnologies.bear_spawn_egg": "Bear Spawn Egg",
+  
   "item.epochtechnologies.bat_wing": "Bat Wing",
   "item.epochtechnologies.cat_tail": "Cat Tail",
 
@@ -70,7 +72,12 @@
   "block.epochtechnologies.aquamarine_block": "Aquamarine Block",
   "block.epochtechnologies.alexandrite_block": "Alexandrite Block",
 
+  "block.epochtechnologies.prop": "Prop",
+
   "block.epochtechnologies.shaft": "Shaft",
+
+  "_comment": "Entity",
+  "entity.epochtechnologies.bear": "Bear",
 
   "_comment": "CreativeTab",
   "itemGroup.epochtechnologies": "Epoch Technologies",

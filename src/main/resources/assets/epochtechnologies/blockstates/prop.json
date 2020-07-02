@@ -1,0 +1,7 @@
+{
+    "variants": {
+        "place=under": { "model": "epochtechnologies:block/prop_crop/prop_under" },
+        "place=middle": { "model": "epochtechnologies:block/prop_crop/prop_middle" },
+        "place=up": { "model": "epochtechnologies:block/prop_crop/prop_up" }
+    }
+}

@@ -4,6 +4,7 @@ import net.minecraft.client.renderer.model.IBakedModel;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.client.event.ModelBakeEvent;
 import net.minecraftforge.client.event.ModelRegistryEvent;
+import net.minecraftforge.event.TickEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 
@@ -23,5 +24,8 @@ public class ModelRegistryHandler {
 
     }
 
+    @SubscribeEvent
+    public static void onTick(TickEvent.ClientTickEvent e) {
 
+    }
 }

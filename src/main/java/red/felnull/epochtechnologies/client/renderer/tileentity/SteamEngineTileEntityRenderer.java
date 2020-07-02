@@ -20,6 +20,10 @@ public class SteamEngineTileEntityRenderer extends TileEntityRenderer<SteamEngin
         super(dispatcher);
     }
 
+    public static int lastTick;
+    public static int current;
+
+
     @Override
     public void render(SteamEngineTileEntity tile, float partialTicks, MatrixStack matrix, IRenderTypeBuffer buff, int light, int overlay) {
 
@@ -36,8 +40,8 @@ public class SteamEngineTileEntityRenderer extends TileEntityRenderer<SteamEngin
 
         float rotationPar = tile.getRotationAngle() / 360f;
         float pistonPar = positiveFloat(1f - rotationPar * 2);
-        RenderHelper.matrixPush(matrix);
 
+        RenderHelper.matrixPush(matrix);
         if (direction == Direction.WEST) {
             RenderHelper.matrixRotateDegreefY(matrix, 180);
             RenderHelper.matrixTranslatef(matrix, -1f, 0f, -1f);
@@ -48,7 +52,6 @@ public class SteamEngineTileEntityRenderer extends TileEntityRenderer<SteamEngin
             RenderHelper.matrixRotateDegreefY(matrix, 270);
             RenderHelper.matrixTranslatef(matrix, 0f, 0f, -1f);
         }
-
 
         RenderHelper.matrixPush(matrix);
         RenderHelper.matrixRotateDegreefY(matrix, -90);
