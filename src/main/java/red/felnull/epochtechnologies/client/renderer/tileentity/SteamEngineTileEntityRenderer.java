@@ -14,6 +14,7 @@ import net.minecraft.util.ResourceLocation;
 import red.felnull.epochtechnologies.EpochTechnologies;
 import red.felnull.epochtechnologies.tileentity.SteamEngineTileEntity;
 import red.felnull.otyacraftengine.client.util.RenderHelper;
+import red.felnull.otyacraftengine.util.IkisugiMath;
 
 public class SteamEngineTileEntityRenderer extends TileEntityRenderer<SteamEngineTileEntity> {
     public SteamEngineTileEntityRenderer(TileEntityRendererDispatcher dispatcher) {
@@ -39,7 +40,7 @@ public class SteamEngineTileEntityRenderer extends TileEntityRenderer<SteamEngin
         float pix = 1f / 16f;
 
         float rotationPar = tile.getRotationAngle() / 360f;
-        float pistonPar = positiveFloat(1f - rotationPar * 2);
+        float pistonPar = IkisugiMath.positiveFloat(1f - rotationPar * 2);
 
         RenderHelper.matrixPush(matrix);
         if (direction == Direction.WEST) {
@@ -91,12 +92,5 @@ public class SteamEngineTileEntityRenderer extends TileEntityRenderer<SteamEngin
 
     }
 
-    public static float positiveFloat(float n) {
-        float r = n;
-        if (n < 0) {
-            r = n * -1f;
-        }
 
-        return r;
-    }
 }

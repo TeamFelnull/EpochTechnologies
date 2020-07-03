@@ -3,9 +3,12 @@ package red.felnull.epochtechnologies.block;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
+import net.minecraft.block.material.PushReaction;
 import net.minecraft.item.BlockItemUseContext;
 import net.minecraft.state.EnumProperty;
+import net.minecraft.state.IntegerProperty;
 import net.minecraft.state.StateContainer;
+import net.minecraft.state.properties.BlockStateProperties;
 import net.minecraft.util.Direction;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.shapes.ISelectionContext;
@@ -18,11 +21,18 @@ import red.felnull.epochtechnologies.block.propertie.PropPlace;
 import red.felnull.epochtechnologies.block.voxelshape.PropVoxelShape;
 
 public class PropBlock extends Block {
+
     public static final EnumProperty<PropPlace> PLACE = ETBlockStateProperties.PROP_PLACE;
+    public static final IntegerProperty AGE = BlockStateProperties.AGE_0_1;
 
     public PropBlock(Properties properties) {
         super(properties);
-        this.setDefaultState(this.stateContainer.getBaseState().with(PLACE, PropPlace.UNDER));
+        this.setDefaultState(this.stateContainer.getBaseState().with(PLACE, PropPlace.UNDER).with(AGE, 0));
+    }
+
+    @Override
+    public PushReaction getPushReaction(BlockState state) {
+        return PushReaction.DESTROY;
     }
 
     @Override
@@ -41,7 +51,7 @@ public class PropBlock extends Block {
 
     @Override
     protected void fillStateContainer(StateContainer.Builder<Block, BlockState> builder) {
-        builder.add(PLACE);
+        builder.add(PLACE, AGE);
     }
 
     @Override

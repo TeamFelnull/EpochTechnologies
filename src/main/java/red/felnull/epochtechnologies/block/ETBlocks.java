@@ -1,5 +1,6 @@
 package red.felnull.epochtechnologies.block;
 
+import net.minecraft.block.AbstractBlock;
 import net.minecraft.block.Block;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
@@ -41,11 +42,12 @@ public class ETBlocks {
     public static final Block ALEXANDRITE_BLOCK = newOreBlock("alexandrite_block", 1, 3.0f, 3.0f);
 
     //植物、穀物の作物ブロック
-    public static final Block PROP = new PropBlock(Block.Properties.create(Material.WOOD).hardnessAndResistance(2.5f, 2.5f).notSolid()).setRegistryName(EpochTechnologies.MODID, "prop");
+    public static final Block PROP = new PropBlock(AbstractBlock.Properties.create(Material.WOOD).hardnessAndResistance(2.5f, 2.5f).notSolid()).setRegistryName(EpochTechnologies.MODID, "prop");
+    public static final Block PEPPER_PROP = new CropPropBlock(AbstractBlock.Properties.create(Material.WOOD).hardnessAndResistance(2.5f, 2.5f).notSolid().tickRandomly()).setRegistryName(EpochTechnologies.MODID, "pepper_prop");
 
     //蒸気機関、動力関係
-    public static final Block SHAFT = new ShaftBlock(Block.Properties.create(Material.IRON).sound(SoundType.SCAFFOLDING).hardnessAndResistance(2.5f, 2.5f).notSolid()).setRegistryName(EpochTechnologies.MODID, "shaft");
-    public static final Block STEAM_ENGINE = new SteamEngineBlock(Block.Properties.create(Material.IRON).hardnessAndResistance(2.5f, 2.5f).notSolid()).setRegistryName(EpochTechnologies.MODID, "steam_engine");
+    public static final Block SHAFT = new ShaftBlock(AbstractBlock.Properties.create(Material.IRON).sound(SoundType.SCAFFOLDING).hardnessAndResistance(2.5f, 2.5f).notSolid()).setRegistryName(EpochTechnologies.MODID, "shaft");
+    public static final Block STEAM_ENGINE = new SteamEngineBlock(AbstractBlock.Properties.create(Material.IRON).hardnessAndResistance(2.5f, 2.5f).notSolid()).setRegistryName(EpochTechnologies.MODID, "steam_engine");
 
     public static void registerBlock(IForgeRegistry<Block> r) {
         registryBlock(r, TEST_BLOCK);
@@ -76,6 +78,7 @@ public class ETBlocks {
         registryBlock(r, ALEXANDRITE_BLOCK);
 
         registryBlock(r, PROP);
+        registryBlock(r, PEPPER_PROP);
 
         registryBlock(r, SHAFT);
         registryBlock(r, STEAM_ENGINE);
@@ -110,6 +113,7 @@ public class ETBlocks {
         registryBlockItem(r, ALEXANDRITE_BLOCK);
 
         registryBlockItem(r, PROP);
+        registryBlockItem(r, PEPPER_PROP);
 
         registryBlockItem(r, SHAFT);
         r.register(new SteamEngineBlockItem(STEAM_ENGINE, new Item.Properties().group(ETItemGroup.MOD_TAB)).setRegistryName(EpochTechnologies.MODID, "steam_engine"));
@@ -118,12 +122,12 @@ public class ETBlocks {
 
 
     private static Block newOreBlock(String name, int hlevel, float hardness, float resistance) {
-        return new ETOreBlock(Block.Properties.create(Material.ROCK).hardnessAndResistance(hardness, resistance).harvestLevel(hlevel))
+        return new ETOreBlock(AbstractBlock.Properties.create(Material.ROCK).hardnessAndResistance(hardness, resistance).harvestLevel(hlevel))
                 .setRegistryName(EpochTechnologies.MODID, name);
     }
 
     private static Block newBlock(String name, Material materialIn, SoundType sound, float hardness, float resistance) {
-        return new Block(Block.Properties.create(materialIn).sound(sound).hardnessAndResistance(hardness, resistance))
+        return new Block(AbstractBlock.Properties.create(materialIn).sound(sound).hardnessAndResistance(hardness, resistance))
                 .setRegistryName(EpochTechnologies.MODID, name);
     }
 

@@ -30,13 +30,13 @@ public class ETItems {
 
 
     //植物
-    public static final Item COTTON = newItem("cotton");
-    public static final Item TEA_LEAF = newItem("tea_leaf");
+    public static final Item COTTON = newFoodItem("cotton", ETFoods.COTTON);
+    public static final Item TEA_LEAF = newFoodItem("tea_leaf", ETFoods.TEA_LEAF);
     public static final Item PEPPER = newItem("pepper");
     public static final Item RICE = newItem("rice");
     public static final Item SOY = newItem("soy");
     public static final Item CORN = newFoodItem("corn", ETFoods.CORN);
-    public static final Item PEPPER_CORNS = newFoodItem("pepper_corns", ETFoods.CORN);
+    public static final Item PEPPER_CORNS = newFoodItem("pepper_corns", ETFoods.PEPPER_CORNS);
 
     //種
     public static final Item COTTON_SEEDS = newItem("cotton_seeds");

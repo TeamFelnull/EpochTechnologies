@@ -1,0 +1,10 @@
+{
+    "variants": {
+        "place=under,age=0": { "model": "epochtechnologies:block/prop_crop/pepper_prop_under_0" },
+        "place=under,age=1": { "model": "epochtechnologies:block/prop_crop/pepper_prop_under_1" },
+        "place=middle,age=0": { "model": "epochtechnologies:block/prop_crop/pepper_prop_middle_0" },
+        "place=middle,age=1": { "model": "epochtechnologies:block/prop_crop/pepper_prop_middle_1" },
+        "place=up,age=0": { "model": "epochtechnologies:block/prop_crop/pepper_prop_up_0" },
+        "place=up,age=1": { "model": "epochtechnologies:block/prop_crop/pepper_prop_up_1" }
+    }
+}

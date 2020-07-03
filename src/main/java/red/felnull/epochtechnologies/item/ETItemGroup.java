@@ -10,7 +10,7 @@ public class ETItemGroup {
     public static final ItemGroup MOD_TAB = new ItemGroup(EpochTechnologies.MODID) {
         @OnlyIn(Dist.CLIENT)
         public ItemStack createIcon() {
-            return new ItemStack(ETItems.PEPPER);
+            return new ItemStack(ETItems.PEPPER_CORNS);
         }
     };
 }
