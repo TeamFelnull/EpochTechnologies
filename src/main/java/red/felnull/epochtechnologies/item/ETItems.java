@@ -6,6 +6,7 @@ import net.minecraft.item.Item;
 import net.minecraft.item.SpawnEggItem;
 import net.minecraftforge.registries.IForgeRegistry;
 import red.felnull.epochtechnologies.EpochTechnologies;
+import red.felnull.epochtechnologies.block.ETBlocks;
 import red.felnull.epochtechnologies.entity.ETEntityTypes;
 
 public class ETItems {
@@ -32,7 +33,7 @@ public class ETItems {
     //植物
     public static final Item COTTON = newFoodItem("cotton", ETFoods.COTTON);
     public static final Item TEA_LEAF = newFoodItem("tea_leaf", ETFoods.TEA_LEAF);
-    public static final Item PEPPER = newItem("pepper");
+    public static final Item PEPPER = new PropSeedItem(new Item.Properties().group(ETItemGroup.MOD_TAB), ETBlocks.PEPPER_PROP).setRegistryName(EpochTechnologies.MODID, "pepper");
     public static final Item RICE = newItem("rice");
     public static final Item SOY = newItem("soy");
     public static final Item CORN = newFoodItem("corn", ETFoods.CORN);
@@ -115,6 +116,7 @@ public class ETItems {
     private static Item newFoodItem(String name, Food foos) {
         return new Item(new Item.Properties().group(ETItemGroup.MOD_TAB).food(foos)).setRegistryName(EpochTechnologies.MODID, name);
     }
+
 
     private static Item newItem(String name) {
         return newItem(name, 64);

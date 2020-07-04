@@ -3,8 +3,9 @@
 	"textures": {
 		"0": "epochtechnologies:block/prop_side",
 		"1": "epochtechnologies:block/prop_up",
-		"2": "epochtechnologies:block/pepper_prop",
-		"particle": "epochtechnologies:block/prop_side"
+		"2": "epochtechnologies:block/pepper_prop_side",
+		"3": "epochtechnologies:block/pepper_prop_side_up",
+		"particle": "epochtechnologies:block/pepper_prop_side"
 	},
 	"elements": [
 		{
@@ -33,15 +34,15 @@
 			}
 		},
 		{
-			"from": [3, 0, 3],
-			"to": [13, 8, 13],
+			"from": [4, 0, 4],
+			"to": [12, 8, 12],
 			"faces": {
-				"north": {"uv": [4, 8, 10, 16], "texture": "#2"},
-				"east": {"uv": [5, 5, 11, 13], "texture": "#2"},
-				"south": {"uv": [6, 3, 12, 11], "texture": "#2"},
-				"west": {"uv": [3, 3, 9, 11], "texture": "#2"},
-				"up": {"uv": [2, 5, 8, 11], "texture": "#2"},
-				"down": {"uv": [2, 5, 8, 11], "texture": "#2"}
+				"north": {"uv": [4, 8, 12, 16], "texture": "#2"},
+				"east": {"uv": [4, 8, 12, 16], "texture": "#2"},
+				"south": {"uv": [4, 8, 12, 16], "texture": "#2"},
+				"west": {"uv": [4, 8, 12, 16], "texture": "#2"},
+				"up": {"uv": [4, 4, 12, 12], "texture": "#3"},
+				"down": {"uv": [4, 4, 12, 12], "texture": "#3"}
 			}
 		}
 	]

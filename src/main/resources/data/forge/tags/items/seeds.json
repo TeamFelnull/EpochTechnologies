@@ -3,6 +3,7 @@
   "values": [
     "#forge:seeds/corn",
     "#forge:seeds/cotton",
-    "#forge:seeds/tea_leaf"
+    "#forge:seeds/tea_leaf",
+    "#forge:seeds/pepper"
   ]
 }

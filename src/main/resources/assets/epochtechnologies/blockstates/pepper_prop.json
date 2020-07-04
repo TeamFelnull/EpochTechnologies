@@ -2,9 +2,15 @@
     "variants": {
         "place=under,age=0": { "model": "epochtechnologies:block/prop_crop/pepper_prop_under_0" },
         "place=under,age=1": { "model": "epochtechnologies:block/prop_crop/pepper_prop_under_1" },
+        "place=under,age=2": { "model": "epochtechnologies:block/prop_crop/pepper_prop_under_2" },
+        "place=under,age=3": { "model": "epochtechnologies:block/prop_crop/pepper_prop_under_3" },
         "place=middle,age=0": { "model": "epochtechnologies:block/prop_crop/pepper_prop_middle_0" },
         "place=middle,age=1": { "model": "epochtechnologies:block/prop_crop/pepper_prop_middle_1" },
+        "place=middle,age=2": { "model": "epochtechnologies:block/prop_crop/pepper_prop_middle_2" },
+        "place=middle,age=3": { "model": "epochtechnologies:block/prop_crop/pepper_prop_middle_3" },
         "place=up,age=0": { "model": "epochtechnologies:block/prop_crop/pepper_prop_up_0" },
-        "place=up,age=1": { "model": "epochtechnologies:block/prop_crop/pepper_prop_up_1" }
+        "place=up,age=1": { "model": "epochtechnologies:block/prop_crop/pepper_prop_up_1" },
+        "place=up,age=2": { "model": "epochtechnologies:block/prop_crop/pepper_prop_up_2" },
+        "place=up,age=3": { "model": "epochtechnologies:block/prop_crop/pepper_prop_up_3" }
     }
 }

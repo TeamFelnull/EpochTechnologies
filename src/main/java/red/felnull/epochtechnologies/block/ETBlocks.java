@@ -9,6 +9,7 @@ import net.minecraft.item.Item;
 import net.minecraftforge.registries.IForgeRegistry;
 import red.felnull.epochtechnologies.EpochTechnologies;
 import red.felnull.epochtechnologies.item.ETItemGroup;
+import red.felnull.epochtechnologies.item.PropBlockItem;
 import red.felnull.epochtechnologies.item.SteamEngineBlockItem;
 
 public class ETBlocks {
@@ -42,11 +43,11 @@ public class ETBlocks {
     public static final Block ALEXANDRITE_BLOCK = newOreBlock("alexandrite_block", 1, 3.0f, 3.0f);
 
     //植物、穀物の作物ブロック
-    public static final Block PROP = new PropBlock(AbstractBlock.Properties.create(Material.WOOD).hardnessAndResistance(2.5f, 2.5f).notSolid()).setRegistryName(EpochTechnologies.MODID, "prop");
-    public static final Block PEPPER_PROP = new CropPropBlock(AbstractBlock.Properties.create(Material.WOOD).hardnessAndResistance(2.5f, 2.5f).notSolid().tickRandomly()).setRegistryName(EpochTechnologies.MODID, "pepper_prop");
+    public static final Block PROP = new PropBlock(AbstractBlock.Properties.create(Material.WOOD).sound(SoundType.SCAFFOLDING).hardnessAndResistance(2.5f, 2.5f).notSolid()).setRegistryName(EpochTechnologies.MODID, "prop");
+    public static final Block PEPPER_PROP = new PepperCropPropBlock(AbstractBlock.Properties.create(Material.WOOD).sound(SoundType.PLANT).hardnessAndResistance(2.5f, 2.5f).notSolid().tickRandomly()).setRegistryName(EpochTechnologies.MODID, "pepper_prop");
 
     //蒸気機関、動力関係
-    public static final Block SHAFT = new ShaftBlock(AbstractBlock.Properties.create(Material.IRON).sound(SoundType.SCAFFOLDING).hardnessAndResistance(2.5f, 2.5f).notSolid()).setRegistryName(EpochTechnologies.MODID, "shaft");
+    public static final Block SHAFT = new ShaftBlock(AbstractBlock.Properties.create(Material.IRON).hardnessAndResistance(2.5f, 2.5f).notSolid()).setRegistryName(EpochTechnologies.MODID, "shaft");
     public static final Block STEAM_ENGINE = new SteamEngineBlock(AbstractBlock.Properties.create(Material.IRON).hardnessAndResistance(2.5f, 2.5f).notSolid()).setRegistryName(EpochTechnologies.MODID, "steam_engine");
 
     public static void registerBlock(IForgeRegistry<Block> r) {
@@ -112,8 +113,7 @@ public class ETBlocks {
         registryBlockItem(r, AQUAMARINE_BLOCK);
         registryBlockItem(r, ALEXANDRITE_BLOCK);
 
-        registryBlockItem(r, PROP);
-        registryBlockItem(r, PEPPER_PROP);
+        r.register(new PropBlockItem(PROP, new Item.Properties().group(ETItemGroup.MOD_TAB)).setRegistryName("prop"));
 
         registryBlockItem(r, SHAFT);
         r.register(new SteamEngineBlockItem(STEAM_ENGINE, new Item.Properties().group(ETItemGroup.MOD_TAB)).setRegistryName(EpochTechnologies.MODID, "steam_engine"));

@@ -23,11 +23,10 @@ import red.felnull.epochtechnologies.block.voxelshape.PropVoxelShape;
 public class PropBlock extends Block {
 
     public static final EnumProperty<PropPlace> PLACE = ETBlockStateProperties.PROP_PLACE;
-    public static final IntegerProperty AGE = BlockStateProperties.AGE_0_1;
 
     public PropBlock(Properties properties) {
         super(properties);
-        this.setDefaultState(this.stateContainer.getBaseState().with(PLACE, PropPlace.UNDER).with(AGE, 0));
+        this.setDefaultState(this.stateContainer.getBaseState().with(PLACE, PropPlace.UNDER));
     }
 
     @Override
@@ -51,7 +50,7 @@ public class PropBlock extends Block {
 
     @Override
     protected void fillStateContainer(StateContainer.Builder<Block, BlockState> builder) {
-        builder.add(PLACE, AGE);
+        builder.add(PLACE);
     }
 
     @Override
