@@ -75,12 +75,15 @@
   "block.epochtechnologies.prop": "Prop",
 
   "block.epochtechnologies.shaft": "Shaft",
+  "block.epochtechnologies.steam_engine": "Steam Engine",
 
   "_comment": "Entity",
   "entity.epochtechnologies.bear": "Bear",
 
   "_comment": "CreativeTab",
-  "itemGroup.epochtechnologies": "Epoch Technologies",
+  "itemGroup.epochtechnologies.foodagriculture": "Epoch Technologies - Food And Agriculture",
+  "itemGroup.epochtechnologies.machine": "Epoch Technologies - Machines",
+  "itemGroup.epochtechnologies.oreminerals": "Epoch Technologies - Ore Minerals",
 
   "_comment": "Last"
   

@@ -6,11 +6,11 @@ import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemGroup;
 import net.minecraftforge.registries.IForgeRegistry;
 import red.felnull.epochtechnologies.EpochTechnologies;
 import red.felnull.epochtechnologies.item.ETItemGroup;
 import red.felnull.epochtechnologies.item.PropBlockItem;
-import red.felnull.epochtechnologies.item.SteamEngineBlockItem;
 
 public class ETBlocks {
     public static final Block TEST_BLOCK = newBlock("test_block", Material.ROCK, SoundType.WOOD, 1.0f, 2.0f);
@@ -86,38 +86,37 @@ public class ETBlocks {
     }
 
     public static void registerItem(IForgeRegistry<Item> r) {
-        registryBlockItem(r, TEST_BLOCK);
+        registryBlockItem(r, TEST_BLOCK, ETItemGroup.OREMINERALS);
 
-        registryBlockItem(r, COPPER_ORE);
-        registryBlockItem(r, TIN_ORE);
-        registryBlockItem(r, LEAD_ORE);
-        registryBlockItem(r, NICKEL_ORE);
-        registryBlockItem(r, SILVER_ORE);
-        registryBlockItem(r, RUBY_ORE);
-        registryBlockItem(r, SAPPHIRE_ORE);
-        registryBlockItem(r, AMETHYST_ORE);
-        registryBlockItem(r, AMBER_ORE);
-        registryBlockItem(r, AQUAMARINE_ORE);
-        registryBlockItem(r, ALEXANDRITE_ORE);
+        registryBlockItem(r, COPPER_ORE, ETItemGroup.OREMINERALS);
+        registryBlockItem(r, TIN_ORE, ETItemGroup.OREMINERALS);
+        registryBlockItem(r, LEAD_ORE, ETItemGroup.OREMINERALS);
+        registryBlockItem(r, NICKEL_ORE, ETItemGroup.OREMINERALS);
+        registryBlockItem(r, SILVER_ORE, ETItemGroup.OREMINERALS);
+        registryBlockItem(r, RUBY_ORE, ETItemGroup.OREMINERALS);
+        registryBlockItem(r, SAPPHIRE_ORE, ETItemGroup.OREMINERALS);
+        registryBlockItem(r, AMETHYST_ORE, ETItemGroup.OREMINERALS);
+        registryBlockItem(r, AMBER_ORE, ETItemGroup.OREMINERALS);
+        registryBlockItem(r, AQUAMARINE_ORE, ETItemGroup.OREMINERALS);
+        registryBlockItem(r, ALEXANDRITE_ORE, ETItemGroup.OREMINERALS);
 
-        registryBlockItem(r, COPPER_BLOCK);
-        registryBlockItem(r, TIN_BLOCK);
-        registryBlockItem(r, LEAD_BLOCK);
-        registryBlockItem(r, NICKEL_BLOCK);
-        registryBlockItem(r, SILVER_BLOCK);
-        registryBlockItem(r, RUBY_BLOCK);
-        registryBlockItem(r, SAPPHIRE_BLOCK);
-        registryBlockItem(r, AMETHYST_BLOCK);
-        registryBlockItem(r, AMBER_BLOCK);
-        registryBlockItem(r, PEARL_BLOCK);
-        registryBlockItem(r, AQUAMARINE_BLOCK);
-        registryBlockItem(r, ALEXANDRITE_BLOCK);
+        registryBlockItem(r, COPPER_BLOCK, ETItemGroup.OREMINERALS);
+        registryBlockItem(r, TIN_BLOCK, ETItemGroup.OREMINERALS);
+        registryBlockItem(r, LEAD_BLOCK, ETItemGroup.OREMINERALS);
+        registryBlockItem(r, NICKEL_BLOCK, ETItemGroup.OREMINERALS);
+        registryBlockItem(r, SILVER_BLOCK, ETItemGroup.OREMINERALS);
+        registryBlockItem(r, RUBY_BLOCK, ETItemGroup.OREMINERALS);
+        registryBlockItem(r, SAPPHIRE_BLOCK, ETItemGroup.OREMINERALS);
+        registryBlockItem(r, AMETHYST_BLOCK, ETItemGroup.OREMINERALS);
+        registryBlockItem(r, AMBER_BLOCK, ETItemGroup.OREMINERALS);
+        registryBlockItem(r, PEARL_BLOCK, ETItemGroup.OREMINERALS);
+        registryBlockItem(r, AQUAMARINE_BLOCK, ETItemGroup.OREMINERALS);
+        registryBlockItem(r, ALEXANDRITE_BLOCK, ETItemGroup.OREMINERALS);
 
-        r.register(new PropBlockItem(PROP, new Item.Properties().group(ETItemGroup.MOD_TAB)).setRegistryName("prop"));
+        r.register(new PropBlockItem(PROP, new Item.Properties().group(ETItemGroup.FOODAGRICULTURE)).setRegistryName("prop"));
 
-        registryBlockItem(r, SHAFT);
-        r.register(new SteamEngineBlockItem(STEAM_ENGINE, new Item.Properties().group(ETItemGroup.MOD_TAB)).setRegistryName(EpochTechnologies.MODID, "steam_engine"));
-
+        registryBlockItem(r, SHAFT, ETItemGroup.MACHINE);
+        registryBlockItem(r, STEAM_ENGINE, ETItemGroup.MACHINE);
     }
 
 
@@ -135,9 +134,8 @@ public class ETBlocks {
         r.register(b);
     }
 
-    private static void registryBlockItem(IForgeRegistry<Item> r, Block b) {
-        r.register(new BlockItem(b, new Item.Properties().group(ETItemGroup.MOD_TAB))
-                .setRegistryName(b.getRegistryName()));
+    private static void registryBlockItem(IForgeRegistry<Item> r, Block b, ItemGroup group) {
+        r.register(new BlockItem(b, new Item.Properties().group(group)).setRegistryName(b.getRegistryName()));
     }
 
     private static void registryItem(IForgeRegistry<Item> r, Item i) {

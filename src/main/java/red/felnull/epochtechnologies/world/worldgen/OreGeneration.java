@@ -5,6 +5,7 @@ import net.minecraft.world.biome.Biome;
 import net.minecraft.world.gen.GenerationStage;
 import net.minecraft.world.gen.feature.Feature;
 import net.minecraft.world.gen.feature.OreFeatureConfig;
+import net.minecraft.world.gen.feature.structure.Structure;
 import net.minecraft.world.gen.placement.CountRangeConfig;
 import net.minecraft.world.gen.placement.Placement;
 import net.minecraftforge.registries.ForgeRegistries;
@@ -24,6 +25,9 @@ public class OreGeneration {
             }
             if (biome.getCategory() == Biome.Category.OCEAN) {
                 addStonInOre(ETBlocks.AQUAMARINE_ORE, biome, 3, 3, 4, 32);
+            }
+            if (biome.getCategory() == Biome.Category.SAVANNA || biome.getCategory() == Biome.Category.BEACH) {
+                addStonInOre(ETBlocks.AMETHYST_ORE, biome, 3, 3, 4, 32);
             }
 
         }
