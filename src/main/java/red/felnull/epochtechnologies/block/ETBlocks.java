@@ -2,6 +2,7 @@ package red.felnull.epochtechnologies.block;
 
 import net.minecraft.block.AbstractBlock;
 import net.minecraft.block.Block;
+import net.minecraft.block.Blocks;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
 import net.minecraft.item.BlockItem;
@@ -10,7 +11,6 @@ import net.minecraft.item.ItemGroup;
 import net.minecraftforge.registries.IForgeRegistry;
 import red.felnull.epochtechnologies.EpochTechnologies;
 import red.felnull.epochtechnologies.item.ETItemGroup;
-import red.felnull.epochtechnologies.item.PropBlockItem;
 
 public class ETBlocks {
     public static final Block TEST_BLOCK = newBlock("test_block", Material.ROCK, SoundType.WOOD, 1.0f, 2.0f);
@@ -20,27 +20,27 @@ public class ETBlocks {
     public static final Block TIN_ORE = newOreBlock("tin_ore", 1, 3.0f, 3.0f);
     public static final Block LEAD_ORE = newOreBlock("lead_ore", 1, 3.0f, 3.0f);
     public static final Block NICKEL_ORE = newOreBlock("nickel_ore", 1, 3.0f, 3.0f);
-    public static final Block SILVER_ORE = newOreBlock("silver_ore", 1, 3.0f, 3.0f);
-    public static final Block RUBY_ORE = newOreBlock("ruby_ore", 1, 3.0f, 3.0f);
-    public static final Block SAPPHIRE_ORE = newOreBlock("sapphire_ore", 1, 3.0f, 3.0f);
-    public static final Block AMETHYST_ORE = newOreBlock("amethyst_ore", 1, 3.0f, 3.0f);
-    public static final Block AMBER_ORE = newOreBlock("amber_ore", 1, 3.0f, 3.0f);
-    public static final Block AQUAMARINE_ORE = newOreBlock("aquamarine_ore", 1, 3.0f, 3.0f);
-    public static final Block ALEXANDRITE_ORE = newOreBlock("alexandrite_ore", 1, 3.0f, 3.0f);
+    public static final Block SILVER_ORE = newOreBlock("silver_ore", 2, 3.0f, 3.0f);
+    public static final Block RUBY_ORE = newOreBlock("ruby_ore", 2, 3.0f, 3.0f, 3, 7);
+    public static final Block SAPPHIRE_ORE = newOreBlock("sapphire_ore", 2, 3.0f, 3.0f, 3, 7);
+    public static final Block AMETHYST_ORE = newOreBlock("amethyst_ore", 2, 3.0f, 3.0f, 3, 7);
+    public static final Block AMBER_ORE = newOreBlock("amber_ore", 2, 3.0f, 3.0f, 3, 7);
+    public static final Block AQUAMARINE_ORE = newOreBlock("aquamarine_ore", 2, 3.0f, 3.0f, 3, 7);
+    public static final Block ALEXANDRITE_ORE = newOreBlock("alexandrite_ore", 2, 3.0f, 3.0f, 3, 7);
 
     //鉱石ブロック
-    public static final Block COPPER_BLOCK = newOreBlock("copper_block", 1, 3.0f, 3.0f);
-    public static final Block TIN_BLOCK = newOreBlock("tin_block", 1, 3.0f, 3.0f);
-    public static final Block LEAD_BLOCK = newOreBlock("lead_block", 1, 3.0f, 3.0f);
-    public static final Block NICKEL_BLOCK = newOreBlock("nickel_block", 1, 3.0f, 3.0f);
-    public static final Block SILVER_BLOCK = newOreBlock("silver_block", 1, 3.0f, 3.0f);
-    public static final Block RUBY_BLOCK = newOreBlock("ruby_block", 1, 3.0f, 3.0f);
-    public static final Block SAPPHIRE_BLOCK = newOreBlock("sapphire_block", 1, 3.0f, 3.0f);
-    public static final Block AMETHYST_BLOCK = newOreBlock("amethyst_block", 1, 3.0f, 3.0f);
-    public static final Block AMBER_BLOCK = newOreBlock("amber_block", 1, 3.0f, 3.0f);
-    public static final Block PEARL_BLOCK = newOreBlock("pearl_block", 1, 3.0f, 3.0f);
-    public static final Block AQUAMARINE_BLOCK = newOreBlock("aquamarine_block", 1, 3.0f, 3.0f);
-    public static final Block ALEXANDRITE_BLOCK = newOreBlock("alexandrite_block", 1, 3.0f, 3.0f);
+    public static final Block COPPER_BLOCK = newBlock("copper_block", Material.IRON, 3.0f, 3.0f);
+    public static final Block TIN_BLOCK = newBlock("tin_block", Material.IRON, 3.0f, 3.0f);
+    public static final Block LEAD_BLOCK = newBlock("lead_block", Material.IRON, 3.0f, 3.0f);
+    public static final Block NICKEL_BLOCK = newBlock("nickel_block", Material.IRON, 3.0f, 3.0f);
+    public static final Block SILVER_BLOCK = newBlock("silver_block", Material.IRON, 3.0f, 3.0f);
+    public static final Block RUBY_BLOCK = newBlock("ruby_block", Material.IRON, 3.0f, 3.0f);
+    public static final Block SAPPHIRE_BLOCK = newBlock("sapphire_block", Material.IRON, 3.0f, 3.0f);
+    public static final Block AMETHYST_BLOCK = newBlock("amethyst_block", Material.IRON, 3.0f, 3.0f);
+    public static final Block AMBER_BLOCK = newBlock("amber_block", Material.IRON, 3.0f, 3.0f);
+    public static final Block PEARL_BLOCK = newBlock("pearl_block", Material.IRON, 3.0f, 3.0f);
+    public static final Block AQUAMARINE_BLOCK = newBlock("aquamarine_block", Material.IRON, 3.0f, 3.0f);
+    public static final Block ALEXANDRITE_BLOCK = newBlock("alexandrite_block", Material.IRON, 3.0f, 3.0f);
 
     //植物、穀物の作物ブロック
     public static final Block PROP = new PropBlock(AbstractBlock.Properties.create(Material.WOOD).sound(SoundType.SCAFFOLDING).hardnessAndResistance(2.5f, 2.5f).notSolid()).setRegistryName(EpochTechnologies.MODID, "prop");
@@ -113,15 +113,23 @@ public class ETBlocks {
         registryBlockItem(r, AQUAMARINE_BLOCK, ETItemGroup.OREMINERALS);
         registryBlockItem(r, ALEXANDRITE_BLOCK, ETItemGroup.OREMINERALS);
 
-        r.register(new PropBlockItem(PROP, new Item.Properties().group(ETItemGroup.FOODAGRICULTURE)).setRegistryName("prop"));
+        registryBlockItem(r, PROP, ETItemGroup.FOODAGRICULTURE);
 
         registryBlockItem(r, SHAFT, ETItemGroup.MACHINE);
         registryBlockItem(r, STEAM_ENGINE, ETItemGroup.MACHINE);
     }
 
 
+    private static Block newOreBlock(String name, int hlevel, float hardness, float resistance, int minexp, int maxexp) {
+        return new ETOreBlock(AbstractBlock.Properties.create(Material.ROCK).hardnessAndResistance(hardness, resistance).harvestLevel(hlevel), minexp, maxexp).setRegistryName(EpochTechnologies.MODID, name);
+    }
+
     private static Block newOreBlock(String name, int hlevel, float hardness, float resistance) {
-        return new ETOreBlock(AbstractBlock.Properties.create(Material.ROCK).hardnessAndResistance(hardness, resistance).harvestLevel(hlevel))
+        return newOreBlock(name, hlevel, hardness, resistance, 0, 0);
+    }
+
+    private static Block newBlock(String name, Material materialIn, float hardness, float resistance) {
+        return new Block(AbstractBlock.Properties.create(materialIn).hardnessAndResistance(hardness, resistance))
                 .setRegistryName(EpochTechnologies.MODID, name);
     }
 

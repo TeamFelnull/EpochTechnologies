@@ -24,10 +24,11 @@
   "item.epochtechnologies.corn": "Corn",
   "item.epochtechnologies.pepper_corns": "Pepper Corns",
   
-  
   "item.epochtechnologies.cotton_seeds": "Cotton Seeds",
   "item.epochtechnologies.tea_leaf_seeds": "Tea Leaf Seeds",
   "item.epochtechnologies.corn_seeds": "Corn Seeds",
+
+  "item.epochtechnologies.connected_prop": "Connected Prop",
 
   "item.epochtechnologies.wolf_hide": "Wolf Hide",
   "item.epochtechnologies.fox_hide": "Fox Hide",

@@ -27,6 +27,16 @@ public class ETOreVeins {
     //追加鉱石
     public static final OreVeins COPPER = new OreVeins(Arrays.asList(new SimpleOreVeinBlockProportion(1, ETBlocks.COPPER_ORE)), STONES, 0.005f, 30, 5, 54, 0.70f, true);
     public static final OreVeins TIN = new OreVeins(Arrays.asList(new SimpleOreVeinBlockProportion(1, ETBlocks.TIN_ORE)), STONES, 0.003f, 30, 5, 54, 0.80f, true);
+    public static final OreVeins LEAD = new OreVeins(Arrays.asList(new SimpleOreVeinBlockProportion(1, ETBlocks.LEAD_ORE)), STONES, 0.005f, 30, 5, 54, 0.70f, true);
+    public static final OreVeins NICKEL = new OreVeins(Arrays.asList(new SimpleOreVeinBlockProportion(1, ETBlocks.NICKEL_ORE)), STONES, 0.003f, 30, 5, 54, 0.80f, true);
+    public static final OreVeins SILVER = new OreVeins(Arrays.asList(new SimpleOreVeinBlockProportion(1, ETBlocks.SILVER_ORE)), STONES, 0.002f, 15, 5, 29, 0.70f, true);
+    public static final OreVeins AMBER = new OreVeins(Arrays.asList(new SimpleOreVeinBlockProportion(1, ETBlocks.AMBER_ORE)), STONES, 0.001f, 10, 5, 29, 0.90f, false, new CategoryOreVeinBiomeFilter(Biome.Category.DESERT, Biome.Category.FOREST));
+    public static final OreVeins RUBY = new OreVeins(Arrays.asList(new SimpleOreVeinBlockProportion(1, ETBlocks.RUBY_ORE)), STONES, 0.001f, 10, 5, 29, 0.90f, false, new CategoryOreVeinBiomeFilter(Biome.Category.EXTREME_HILLS));
+    public static final OreVeins ALEXANDRITE = new OreVeins(Arrays.asList(new SimpleOreVeinBlockProportion(1, ETBlocks.ALEXANDRITE_ORE)), STONES, 0.001f, 10, 5, 29, 0.90f, false, new CategoryOreVeinBiomeFilter(Biome.Category.EXTREME_HILLS));
+    public static final OreVeins SAPPHIRE = new OreVeins(Arrays.asList(new SimpleOreVeinBlockProportion(1, ETBlocks.SAPPHIRE_ORE)), STONES, 0.001f, 10, 5, 29, 0.90f, false, new CategoryOreVeinBiomeFilter(Biome.Category.ICY));
+    public static final OreVeins AQUAMARINE = new OreVeins(Arrays.asList(new SimpleOreVeinBlockProportion(1, ETBlocks.AQUAMARINE_ORE)), STONES, 0.001f, 10, 5, 29, 0.90f, false, new CategoryOreVeinBiomeFilter(Biome.Category.OCEAN));
+    public static final OreVeins AMETHYST = new OreVeins(Arrays.asList(new SimpleOreVeinBlockProportion(1, ETBlocks.AMETHYST_ORE)), STONES, 0.001f, 10, 5, 29, 0.90f, false, new CategoryOreVeinBiomeFilter(Biome.Category.SAVANNA, Biome.Category.BEACH));
+
     //特殊
     public static final OreVeins MINERS_DREAM = new OreVeins(Arrays.asList(new TagOreVeinBlockProportion(32, Tags.Blocks.ORES), new TagOreVeinBlockProportion(1, Tags.Blocks.STORAGE_BLOCKS)), STONES, 0.000001f, 32, 0, 64, 0.75f, true);
 
@@ -42,6 +52,15 @@ public class ETOreVeins {
 
         registryVein("copper", COPPER);
         registryVein("tin", TIN);
+        registryVein("lead", LEAD);
+        registryVein("nickel", NICKEL);
+        registryVein("silver", SILVER);
+        registryVein("amber", AMBER);
+        registryVein("ruby", RUBY);
+        registryVein("alexandrite", ALEXANDRITE);
+        registryVein("sapphire", SAPPHIRE);
+        registryVein("aquamarine", AQUAMARINE);
+        registryVein("amethyst", AMETHYST);
 
         registryVein("miners_dream", MINERS_DREAM);
 

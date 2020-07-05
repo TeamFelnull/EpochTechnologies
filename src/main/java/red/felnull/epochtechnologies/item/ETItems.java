@@ -29,7 +29,6 @@ public class ETItems {
     public static final Item AQUAMARINE = newItem("aquamarine", ETItemGroup.OREMINERALS);
     public static final Item ALEXANDRITE = newItem("alexandrite", ETItemGroup.OREMINERALS);
 
-
     //植物
     public static final Item COTTON = newFoodItem("cotton", ETFoods.COTTON, ETItemGroup.FOODAGRICULTURE);
     public static final Item TEA_LEAF = newFoodItem("tea_leaf", ETFoods.TEA_LEAF, ETItemGroup.FOODAGRICULTURE);
@@ -43,6 +42,9 @@ public class ETItems {
     public static final Item COTTON_SEEDS = newItem("cotton_seeds", ETItemGroup.FOODAGRICULTURE);
     public static final Item TEA_LEAF_SEEDS = newItem("tea_leaf_seeds", ETItemGroup.FOODAGRICULTURE);
     public static final Item CORN_SEEDS = newItem("corn_seeds", ETItemGroup.FOODAGRICULTURE);
+
+    //農業道具
+    public static final Item CONNECTED_PROP = new ConnectedPropItem(new Item.Properties().group(ETItemGroup.FOODAGRICULTURE)).setRegistryName("connected_prop");
 
     //毛皮
     public static final Item WOLF_HIDE = newItem("wolf_hide", ETItemGroup.FOODAGRICULTURE);
@@ -86,6 +88,8 @@ public class ETItems {
         registryItem(r, COTTON_SEEDS);
         registryItem(r, TEA_LEAF_SEEDS);
         registryItem(r, CORN_SEEDS);
+
+        registryItem(r, CONNECTED_PROP);
 
         registryItem(r, COTTON);
         registryItem(r, TEA_LEAF);

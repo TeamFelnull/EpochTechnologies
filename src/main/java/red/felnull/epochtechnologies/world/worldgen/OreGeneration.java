@@ -5,7 +5,6 @@ import net.minecraft.world.biome.Biome;
 import net.minecraft.world.gen.GenerationStage;
 import net.minecraft.world.gen.feature.Feature;
 import net.minecraft.world.gen.feature.OreFeatureConfig;
-import net.minecraft.world.gen.feature.structure.Structure;
 import net.minecraft.world.gen.placement.CountRangeConfig;
 import net.minecraft.world.gen.placement.Placement;
 import net.minecraftforge.registries.ForgeRegistries;
@@ -14,11 +13,18 @@ import red.felnull.epochtechnologies.block.ETBlocks;
 public class OreGeneration {
     public static void init() {
         for (Biome biome : ForgeRegistries.BIOMES) {
-            addStonInOre(ETBlocks.COPPER_ORE, biome, 10, 30, 0, 64);
-            addStonInOre(ETBlocks.TIN_ORE, biome, 8, 25, 0, 64);
+            addStonInOre(ETBlocks.COPPER_ORE, biome, 9, 20, 0, 64);
+            addStonInOre(ETBlocks.TIN_ORE, biome, 9, 15, 0, 64);
+            addStonInOre(ETBlocks.LEAD_ORE, biome, 7, 10, 0, 32);
+            addStonInOre(ETBlocks.NICKEL_ORE, biome, 7, 9, 0, 32);
+            addStonInOre(ETBlocks.SILVER_BLOCK, biome, 8, 2, 0, 32);
 
+            if (biome.getCategory() == Biome.Category.FOREST || biome.getCategory() == Biome.Category.DESERT) {
+                addStonInOre(ETBlocks.AMBER_ORE, biome, 8, 1, 0, 16);
+            }
             if (biome.getCategory() == Biome.Category.EXTREME_HILLS) {
                 addStonInOre(ETBlocks.RUBY_ORE, biome, 3, 3, 4, 32);
+                addStonInOre(ETBlocks.ALEXANDRITE_ORE, biome, 3, 3, 4, 32);
             }
             if (biome.getCategory() == Biome.Category.ICY) {
                 addStonInOre(ETBlocks.SAPPHIRE_ORE, biome, 3, 3, 4, 32);
@@ -29,7 +35,6 @@ public class OreGeneration {
             if (biome.getCategory() == Biome.Category.SAVANNA || biome.getCategory() == Biome.Category.BEACH) {
                 addStonInOre(ETBlocks.AMETHYST_ORE, biome, 3, 3, 4, 32);
             }
-
         }
     }
 

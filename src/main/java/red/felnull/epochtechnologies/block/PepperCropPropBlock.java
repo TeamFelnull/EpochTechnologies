@@ -26,21 +26,13 @@ public class PepperCropPropBlock extends CropPropBlock {
             } else if (place == PropPlace.UP) {
                 return PepperCropPropVoxelShape.UP_0_AXIS_AABB;
             }
-        } else if (age == 1) {
+        } else if (age == 1 || age == 2 || age == 3) {
             if (place == PropPlace.UNDER) {
                 return PepperCropPropVoxelShape.UNDER_1_AXIS_AABB;
             } else if (place == PropPlace.MIDDLE) {
                 return PepperCropPropVoxelShape.MIDDLE_1_AXIS_AABB;
             } else if (place == PropPlace.UP) {
                 return PepperCropPropVoxelShape.UP_1_AXIS_AABB;
-            }
-        } else if (age == 2 || age == 3) {
-            if (place == PropPlace.UNDER) {
-                return PepperCropPropVoxelShape.UNDER_2_3_AXIS_AABB;
-            } else if (place == PropPlace.MIDDLE) {
-                return PepperCropPropVoxelShape.MIDDLE_2_3_AXIS_AABB;
-            } else if (place == PropPlace.UP) {
-                return PepperCropPropVoxelShape.UP_2_3_AXIS_AABB;
             }
         }
 

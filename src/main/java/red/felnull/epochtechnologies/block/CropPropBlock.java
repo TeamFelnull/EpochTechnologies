@@ -10,9 +10,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.state.IntegerProperty;
 import net.minecraft.state.StateContainer;
 import net.minecraft.state.properties.BlockStateProperties;
-import net.minecraft.util.ActionResultType;
-import net.minecraft.util.Direction;
-import net.minecraft.util.Hand;
+import net.minecraft.util.*;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.BlockRayTraceResult;
 import net.minecraft.world.IBlockReader;
@@ -40,9 +38,12 @@ public class CropPropBlock extends PropBlock implements IGrowable {
         ItemStack heldstack = player.getHeldItem(hand);
         if (canHarvest(worldIn, pos, stateIn)) {
             if (!worldIn.isRemote) {
-                harvest(stateIn, worldIn, pos, Tags.Items.SHEARS.func_230235_a_(heldstack.getItem()));
+                if (Tags.Items.SHEARS.func_230235_a_(heldstack.getItem())) {
+                    harvest(stateIn, worldIn, pos);
+                    worldIn.playSound((PlayerEntity) null, pos, SoundEvents.ENTITY_SHEEP_SHEAR, SoundCategory.BLOCKS, (this.getSoundType(stateIn).getVolume() + 1.0F) / 2.0F,  0.3F);
+                    return ActionResultType.SUCCESS;
+                }
             }
-            return ActionResultType.SUCCESS;
         }
 
         return ActionResultType.PASS;
@@ -124,17 +125,10 @@ public class CropPropBlock extends PropBlock implements IGrowable {
         return f;
     }
 
-    public void harvest(BlockState state, World worldIn, BlockPos pos, boolean precision) {
+    public void harvest(BlockState state, World worldIn, BlockPos pos) {
         Random r = new Random();
-        if (!precision) {
-            if (r.nextInt(100) <= 25) {
-                worldIn.setBlockState(pos, ETBlocks.PROP.getDefaultState().with(PropBlock.PLACE, state.get(PropBlock.PLACE)));
-            } else {
-                worldIn.setBlockState(pos, state.with(AGE, 1));
-            }
-        } else {
-            worldIn.setBlockState(pos, state.with(AGE, 1));
-        }
+
+        worldIn.setBlockState(pos, state.with(AGE, 1));
 
         ItemEntity ie = EntityUtil.createItemEntity(new ItemStack(ETItems.PEPPER_CORNS, r.nextInt(16)), worldIn, pos.getX() + 0.5f, pos.getY() + 0.5f, pos.getZ() + 0.5f);
         worldIn.addEntity(ie);
