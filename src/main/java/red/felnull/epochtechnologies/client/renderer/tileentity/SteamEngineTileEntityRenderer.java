@@ -17,12 +17,11 @@ import red.felnull.otyacraftengine.client.util.RenderHelper;
 import red.felnull.otyacraftengine.util.IkisugiMath;
 
 public class SteamEngineTileEntityRenderer extends TileEntityRenderer<SteamEngineTileEntity> {
+
+
     public SteamEngineTileEntityRenderer(TileEntityRendererDispatcher dispatcher) {
         super(dispatcher);
     }
-
-    public static int lastTick;
-    public static int current;
 
 
     @Override

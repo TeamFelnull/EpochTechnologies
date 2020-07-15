@@ -19,9 +19,13 @@ public class ETTileEntityTypes {
     @ObjectHolder(EpochTechnologies.MODID + ":" + "steam_engine")
     public static TileEntityType<SteamEngineTileEntity> STEAM_ENGINE;
 
+    @ObjectHolder(EpochTechnologies.MODID + ":" + "steam_boiler")
+    public static TileEntityType<SteamBoilerTileEntity> STEAM_BOILER;
+
     public static void registerTileEntityType(IForgeRegistry<TileEntityType<?>> r) {
         registryTileEntityType(r, ShaftTileEntity::new, SHAFT, "shaft", ETBlocks.SHAFT);
         registryTileEntityType(r, SteamEngineTileEntity::new, STEAM_ENGINE, "steam_engine", ETBlocks.STEAM_ENGINE);
+        registryTileEntityType(r, SteamBoilerTileEntity::new, STEAM_BOILER, "steam_boiler", ETBlocks.STEAM_BOILER);
     }
 
     private static void registryTileEntityType(IForgeRegistry<TileEntityType<?>> r, Supplier<? extends TileEntity> factoryIn, TileEntityType<?> te, String name, Block... blocks) {

@@ -2,7 +2,6 @@ package red.felnull.epochtechnologies.block;
 
 import net.minecraft.block.AbstractBlock;
 import net.minecraft.block.Block;
-import net.minecraft.block.Blocks;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
 import net.minecraft.item.BlockItem;
@@ -49,6 +48,7 @@ public class ETBlocks {
     //蒸気機関、動力関係
     public static final Block SHAFT = new ShaftBlock(AbstractBlock.Properties.create(Material.IRON).hardnessAndResistance(2.5f, 2.5f).notSolid()).setRegistryName(EpochTechnologies.MODID, "shaft");
     public static final Block STEAM_ENGINE = new SteamEngineBlock(AbstractBlock.Properties.create(Material.IRON).hardnessAndResistance(2.5f, 2.5f).notSolid()).setRegistryName(EpochTechnologies.MODID, "steam_engine");
+    public static final Block STEAM_BOILER = new SteamBoilerBlock(AbstractBlock.Properties.create(Material.IRON).hardnessAndResistance(2.5f, 2.5f).notSolid()).setRegistryName(EpochTechnologies.MODID, "steam_boiler");
 
     public static void registerBlock(IForgeRegistry<Block> r) {
         registryBlock(r, TEST_BLOCK);
@@ -83,6 +83,7 @@ public class ETBlocks {
 
         registryBlock(r, SHAFT);
         registryBlock(r, STEAM_ENGINE);
+        registryBlock(r, STEAM_BOILER);
     }
 
     public static void registerItem(IForgeRegistry<Item> r) {
@@ -117,6 +118,7 @@ public class ETBlocks {
 
         registryBlockItem(r, SHAFT, ETItemGroup.MACHINE);
         registryBlockItem(r, STEAM_ENGINE, ETItemGroup.MACHINE);
+        registryBlockItem(r, STEAM_BOILER, ETItemGroup.MACHINE);
     }
 
 

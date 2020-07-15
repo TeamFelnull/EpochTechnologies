@@ -7,5 +7,6 @@ public class ETTileEntityRenderers {
     public static void registerTileEntityRenderer() {
         ClientRegistry.bindTileEntityRenderer(ETTileEntityTypes.SHAFT, ShaftTileEntityRenderer::new);
         ClientRegistry.bindTileEntityRenderer(ETTileEntityTypes.STEAM_ENGINE, SteamEngineTileEntityRenderer::new);
+        ClientRegistry.bindTileEntityRenderer(ETTileEntityTypes.STEAM_BOILER, SteamBoilerTileEntityRenderer::new);
     }
 }
