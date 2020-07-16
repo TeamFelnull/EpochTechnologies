@@ -4,12 +4,21 @@ import net.minecraft.block.AbstractBlock;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.HorizontalBlock;
+import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.entity.player.ServerPlayerEntity;
+import net.minecraft.inventory.container.INamedContainerProvider;
 import net.minecraft.item.BlockItemUseContext;
 import net.minecraft.state.BooleanProperty;
 import net.minecraft.state.StateContainer;
 import net.minecraft.state.properties.BlockStateProperties;
 import net.minecraft.tileentity.TileEntity;
+import net.minecraft.util.ActionResultType;
+import net.minecraft.util.Hand;
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.BlockRayTraceResult;
 import net.minecraft.world.IBlockReader;
+import net.minecraft.world.World;
+import net.minecraftforge.fml.network.NetworkHooks;
 import red.felnull.epochtechnologies.tileentity.SteamBoilerTileEntity;
 
 import javax.annotation.Nullable;
@@ -50,6 +59,18 @@ public class SteamBoilerBlock extends HorizontalBlock {
     protected void fillStateContainer(StateContainer.Builder<Block, BlockState> blockBlockStateBuilder) {
         blockBlockStateBuilder.add(HORIZONTAL_FACING, LIT, OPEN);
 
+    }
+
+    @Override
+    public ActionResultType onBlockActivated(BlockState p_225533_1_, World worldIn, BlockPos pos, PlayerEntity playerIn, Hand p_225533_5_, BlockRayTraceResult p_225533_6_) {
+        if (!worldIn.isRemote) {
+            TileEntity tileentity = worldIn.getTileEntity(pos);
+            if (!(tileentity instanceof SteamBoilerTileEntity))
+                return ActionResultType.PASS;
+
+            NetworkHooks.openGui((ServerPlayerEntity) playerIn, (INamedContainerProvider) tileentity, pos);
+        }
+        return ActionResultType.SUCCESS;
     }
 
     @Nullable

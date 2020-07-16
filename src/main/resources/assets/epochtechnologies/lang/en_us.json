@@ -77,7 +77,10 @@
 
   "block.epochtechnologies.shaft": "Shaft",
   "block.epochtechnologies.steam_engine": "Steam Engine",
+  "block.epochtechnologies.steam_boiler": "Steam Boiler",
 
+  "container.steam_boiler": "Steam Boiler",
+  
   "_comment": "Entity",
   "entity.epochtechnologies.bear": "Bear",
 
