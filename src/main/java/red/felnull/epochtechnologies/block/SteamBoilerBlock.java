@@ -67,7 +67,7 @@ public class SteamBoilerBlock extends HorizontalBlock {
             TileEntity tileentity = worldIn.getTileEntity(pos);
             if (!(tileentity instanceof SteamBoilerTileEntity))
                 return ActionResultType.PASS;
-
+            //       playerIn.openContainer((INamedContainerProvider) tileentity);
             NetworkHooks.openGui((ServerPlayerEntity) playerIn, (INamedContainerProvider) tileentity, pos);
         }
         return ActionResultType.SUCCESS;

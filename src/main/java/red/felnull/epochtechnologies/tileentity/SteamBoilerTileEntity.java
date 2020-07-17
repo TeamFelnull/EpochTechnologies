@@ -31,6 +31,8 @@ import javax.annotation.Nullable;
 public class SteamBoilerTileEntity extends LockableTileEntity implements ITickableTileEntity, IClientSyncbleTileEntity {
     public float doorAngle;
 
+    private int numPlayersUsing;
+
     protected NonNullList<ItemStack> items = NonNullList.withSize(3, ItemStack.EMPTY);
 
 
@@ -76,9 +78,24 @@ public class SteamBoilerTileEntity extends LockableTileEntity implements ITickab
         return new SteamBoilerContainer(id, player, this, this.getPos());
     }
 
+
+    private void setOpenProperty(BlockState state, boolean opend) {
+        this.world.setBlockState(this.getPos(), state.with(SteamBoilerBlock.OPEN, opend), 3);
+    }
+
+
+    @Override
+    public void closeInventory(PlayerEntity player) {
+        System.out.println("test");
+    }
+
+    @Override
+    public void openInventory(PlayerEntity playerIn) {
+        System.out.println("test");
+    }
+
     @Override
     public void tick() {
-
 
         BlockState state = getBlockState();
         if (!world.isRemote) {
